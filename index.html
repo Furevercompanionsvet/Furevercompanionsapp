@@ -6,408 +6,734 @@
 <title>Furever Companions Veterinary Care</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;background:#F5F5F0;color:#1a1a1a;}
-#app{display:flex;height:100vh;overflow:hidden;}
-#sidebar{width:200px;min-width:200px;background:#fff;border-right:0.5px solid #e0e0d8;display:flex;flex-direction:column;padding:16px 0;}
-.logo{padding:0 16px 16px;border-bottom:0.5px solid #e0e0d8;margin-bottom:12px;}
-.logo-name{font-size:13px;font-weight:500;color:#085041;}
-.logo-sub{font-size:10px;color:#888;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;font-size:13px;color:#666;border-left:2px solid transparent;}
-.nav-item:hover{background:#f5f5f0;color:#1a1a1a;}
-.nav-item.active{background:#E1F5EE;color:#085041;border-left-color:#1D9E75;font-weight:500;}
-.nav-icon{font-size:15px;width:18px;text-align:center;}
-.nav-section{font-size:10px;color:#aaa;padding:12px 16px 4px;text-transform:uppercase;letter-spacing:0.08em;}
-#main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
-.topbar{padding:12px 20px;background:#fff;border-bottom:0.5px solid #e0e0d8;display:flex;align-items:center;justify-content:space-between;}
-.topbar-title{font-size:15px;font-weight:500;}
-.content{flex:1;overflow-y:auto;padding:20px;}
-.btn{padding:7px 14px;border-radius:8px;border:0.5px solid #ddd;background:#fff;font-size:13px;cursor:pointer;color:#1a1a1a;}
-.btn:hover{background:#f5f5f0;}
-.btn-primary{background:#1D9E75;color:#fff;border-color:#1D9E75;}
-.btn-primary:hover{background:#085041;}
-.btn-sm{padding:5px 10px;font-size:12px;}
-.panel{display:none;}
-.panel.active{display:block;}
-.card{background:#fff;border:0.5px solid #e0e0d8;border-radius:12px;padding:14px;}
-.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;}
-.badge-teal{background:#E1F5EE;color:#085041;}
-.badge-amber{background:#FAEEDA;color:#854F0B;}
-.badge-red{background:#FCEBEB;color:#A32D2D;}
-.badge-blue{background:#E6F1FB;color:#0C447C;}
-.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
-.stat-card{background:#f5f5f0;border-radius:8px;padding:12px;}
-.stat-label{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
-.stat-val{font-size:22px;font-weight:500;}
-.search-input{width:100%;padding:8px 12px;border:0.5px solid #ddd;border-radius:8px;background:#fff;font-size:13px;margin-bottom:12px;}
-.patient-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.patient-card{background:#fff;border:0.5px solid #e0e0d8;border-radius:12px;padding:14px;cursor:pointer;}
-.patient-card:hover{border-color:#1D9E75;}
-.table{width:100%;border-collapse:collapse;font-size:13px;}
-.table th{text-align:left;padding:8px 10px;font-size:11px;font-weight:500;color:#888;border-bottom:0.5px solid #e0e0d8;text-transform:uppercase;}
-.table td{padding:9px 10px;border-bottom:0.5px solid #e0e0d8;}
-.table tr:hover td{background:#f5f5f0;}
-.form-row{margin-bottom:12px;}
-.form-label{font-size:12px;color:#666;margin-bottom:4px;display:block;}
-.form-input{width:100%;padding:8px 10px;border:0.5px solid #ddd;border-radius:8px;background:#fff;font-size:13px;color:#1a1a1a;}
-.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:100;align-items:center;justify-content:center;}
-.modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:12px;padding:20px;width:440px;max-width:90%;max-height:80vh;overflow-y:auto;}
-.modal-title{font-size:15px;font-weight:500;margin-bottom:16px;}
-.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;}
-.soap-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
-.soap-section{background:#fff;border:0.5px solid #e0e0d8;border-radius:8px;}
-.soap-header{padding:8px 12px;border-bottom:0.5px solid #e0e0d8;display:flex;align-items:center;gap:8px;}
-.soap-letter{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;}
-.soap-textarea{width:100%;border:none;background:transparent;font-size:13px;font-family:inherit;color:#1a1a1a;resize:none;outline:none;line-height:1.6;min-height:90px;padding:8px 12px;}
-</style>
-</head>
-<body>
-<div id="app">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Furever Companions Veterinary Care</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;background:#F5F5F0;color:#1A1917;}
 #app{display:flex;height:100vh;overflow:hidden;}
-#sidebar{width:200px;min-width:200px;background:#fff;border-right:0.5px solid #E5E3DC;display:flex;flex-direction:column;padding:16px 0;}
-.logo{padding:0 16px 16px;border-bottom:0.5px solid #E5E3DC;margin-bottom:12px;}
-.logo-name{font-size:13px;font-weight:500;color:#085041;}
-.logo-sub{font-size:10px;color:#6B6966;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;font-size:13px;color:#6B6966;border-left:2px solid transparent;}
+
+/* SIDEBAR */
+#sidebar{width:210px;min-width:210px;background:#fff;border-right:0.5px solid #E5E3DC;display:flex;flex-direction:column;padding:0;}
+.logo-wrap{padding:16px;border-bottom:0.5px solid #E5E3DC;}
+.logo-name{font-size:13px;font-weight:600;color:#085041;line-height:1.2;}
+.logo-sub{font-size:10px;color:#9C9A96;}
+.nav-section{font-size:10px;color:#9C9A96;padding:12px 16px 4px;text-transform:uppercase;letter-spacing:0.08em;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;font-size:13px;color:#6B6966;border-left:2px solid transparent;transition:all 0.12s;}
 .nav-item:hover{background:#F5F5F0;color:#1A1917;}
 .nav-item.active{background:#E1F5EE;color:#085041;border-left-color:#1D9E75;font-weight:500;}
-.nav-section{font-size:10px;color:#9C9A96;padding:12px 16px 4px;text-transform:uppercase;letter-spacing:0.08em;}
+.sidebar-footer{margin-top:auto;padding:12px 16px;border-top:0.5px solid #E5E3DC;font-size:11px;color:#9C9A96;line-height:1.6;}
+
+/* MAIN */
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
-.topbar{padding:12px 20px;background:#fff;border-bottom:0.5px solid #E5E3DC;display:flex;align-items:center;justify-content:space-between;}
-.topbar-title{font-size:15px;font-weight:500;}
+.topbar{padding:12px 20px;background:#fff;border-bottom:0.5px solid #E5E3DC;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.topbar-title{font-size:15px;font-weight:600;}
+.topbar-actions{display:flex;gap:8px;}
 .content{flex:1;overflow-y:auto;padding:20px;}
-.btn{padding:7px 14px;border-radius:8px;border:0.5px solid #D5D3CC;background:#fff;font-size:13px;cursor:pointer;color:#1A1917;}
+
+/* BUTTONS */
+.btn{padding:7px 14px;border-radius:8px;border:0.5px solid #D5D3CC;background:#fff;font-size:13px;cursor:pointer;color:#1A1917;transition:background 0.1s;}
 .btn:hover{background:#F5F5F0;}
 .btn-primary{background:#1D9E75;color:#fff;border-color:#1D9E75;}
 .btn-primary:hover{background:#085041;}
 .btn-sm{padding:5px 10px;font-size:12px;}
+.btn-danger{background:#FCEBEB;color:#A32D2D;border-color:#F09595;}
+
+/* PANELS */
 .panel{display:none;}
 .panel.active{display:block;}
+
+/* CARDS */
 .card{background:#fff;border:0.5px solid #E5E3DC;border-radius:12px;padding:16px;}
+.card-title{font-size:11px;font-weight:600;color:#9C9A96;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;}
+
+/* BADGES */
 .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;}
 .badge-teal{background:#E1F5EE;color:#085041;}
 .badge-amber{background:#FAEEDA;color:#854F0B;}
 .badge-red{background:#FCEBEB;color:#A32D2D;}
 .badge-blue{background:#E6F1FB;color:#0C447C;}
+.badge-purple{background:#EEEDFE;color:#3C3489;}
+.badge-gray{background:#F1EFE8;color:#5F5E5A;}
+
+/* STATS */
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;}
-.stat-card{background:#F5F5F0;border-radius:8px;padding:12px;}
-.stat-label{font-size:10px;color:#6B6966;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
-.stat-val{font-size:22px;font-weight:500;}
-.patient-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
-.patient-card{background:#fff;border:0.5px solid #E5E3DC;border-radius:12px;padding:14px;cursor:pointer;}
+.stat-card{background:#fff;border:0.5px solid #E5E3DC;border-radius:10px;padding:12px;}
+.stat-label{font-size:10px;color:#9C9A96;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px;}
+.stat-val{font-size:22px;font-weight:600;}
+
+/* SEARCH */
+.search-input{width:100%;padding:8px 12px;border:0.5px solid #D5D3CC;border-radius:8px;background:#fff;font-size:13px;color:#1A1917;margin-bottom:12px;}
+
+/* PATIENT GRID */
+.patient-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
+.patient-card{background:#fff;border:0.5px solid #E5E3DC;border-radius:12px;padding:14px;cursor:pointer;transition:border-color 0.12s;}
 .patient-card:hover{border-color:#1D9E75;}
-.search-input{width:100%;padding:8px 12px;border:0.5px solid #D5D3CC;border-radius:8px;background:#fff;font-size:13px;margin-bottom:12px;}
-.soap-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
-.soap-section{background:#fff;border:0.5px solid #E5E3DC;border-radius:8px;}
-.soap-header{padding:8px 12px;border-bottom:0.5px solid #E5E3DC;display:flex;align-items:center;gap:8px;}
-.soap-textarea{width:100%;border:none;background:transparent;font-size:13px;font-family:inherit;resize:none;outline:none;line-height:1.6;min-height:100px;padding:8px 12px;}
-.form-input{width:100%;padding:8px 10px;border:0.5px solid #D5D3CC;border-radius:8px;background:#fff;font-size:13px;color:#1A1917;margin-top:4px;}
-.form-label{font-size:12px;color:#6B6966;display:block;margin-bottom:2px;}
-.form-row{margin-bottom:12px;}
-.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-table{width:100%;border-collapse:collapse;font-size:13px;}
-th{text-align:left;padding:8px 10px;font-size:11px;font-weight:500;color:#6B6966;border-bottom:0.5px solid #D5D3CC;text-transform:uppercase;}
-td{padding:9px 10px;border-bottom:0.5px solid #E5E3DC;}
-tr:hover td{background:#F5F5F0;}
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:100;align-items:center;justify-content:center;}
-.modal-overlay.open{display:flex;}
-.modal{background:#fff;border-radius:12px;padding:20px;width:440px;max-width:90%;max-height:85vh;overflow-y:auto;}
-.modal-title{font-size:15px;font-weight:500;margin-bottom:16px;}
-.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;}
-.tabs{display:flex;gap:2px;margin-bottom:16px;background:#F5F5F0;border-radius:8px;padding:3px;width:fit-content;}
+.patient-card.alert-card{border-left:3px solid #E24B4A;}
+.pt-name{font-weight:600;font-size:14px;margin-bottom:2px;}
+.pt-species{font-size:12px;color:#6B6966;}
+.pt-owner{font-size:12px;color:#9C9A96;margin-top:4px;}
+.pt-alert{font-size:11px;color:#A32D2D;background:#FCEBEB;border-radius:4px;padding:2px 6px;margin-top:6px;display:inline-block;}
+
+/* PATIENT DETAIL */
+#patient-detail{display:none;}
+.detail-layout{display:grid;grid-template-columns:260px 1fr;gap:16px;}
+.detail-sidebar{display:flex;flex-direction:column;gap:12px;}
+.field-row{display:flex;justify-content:space-between;align-items:flex-start;font-size:13px;padding:5px 0;border-bottom:0.5px solid #F5F5F0;}
+.field-row:last-child{border-bottom:none;}
+.field-label{color:#9C9A96;flex-shrink:0;margin-right:8px;}
+.field-value{font-weight:500;text-align:right;}
+.alert-banner{background:#FCEBEB;border:0.5px solid #F09595;border-radius:8px;padding:8px 12px;font-size:12px;color:#A32D2D;font-weight:500;}
+
+/* SOAP */
+.soap-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;}
+.soap-box{background:#fff;border:0.5px solid #E5E3DC;border-radius:8px;overflow:hidden;}
+.soap-head{padding:8px 12px;border-bottom:0.5px solid #F5F5F0;display:flex;align-items:center;gap:8px;}
+.soap-letter{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;}
+.sl-s{background:#E6F1FB;color:#0C447C;}
+.sl-o{background:#E1F5EE;color:#085041;}
+.sl-a{background:#FAEEDA;color:#854F0B;}
+.sl-p{background:#EEEDFE;color:#3C3489;}
+.soap-label{font-size:12px;font-weight:500;color:#6B6966;}
+.soap-ta{width:100%;border:none;background:transparent;font-size:13px;font-family:inherit;resize:none;outline:none;line-height:1.6;min-height:100px;padding:8px 12px;color:#1A1917;}
+
+/* VITALS */
+.vitals-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.vital-pill{background:#F5F5F0;border-radius:8px;padding:6px 10px;font-size:12px;display:flex;flex-direction:column;align-items:center;min-width:60px;}
+.vital-val{font-weight:600;font-size:13px;}
+.vital-lbl{color:#9C9A96;font-size:10px;}
+
+/* VISIT LIST */
+.visit-item{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;background:#F5F5F0;border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;}
+.visit-item:hover{background:#E1F5EE;}
+
+/* TABS */
+.tabs{display:flex;gap:2px;background:#F5F5F0;border-radius:8px;padding:3px;width:fit-content;margin-bottom:14px;}
 .tab{padding:6px 14px;border-radius:6px;font-size:13px;cursor:pointer;color:#6B6966;}
-.tab.active{background:#fff;color:#1A1917;font-weight:500;}
+.tab.active{background:#fff;color:#1A1917;font-weight:500;box-shadow:0 1px 3px rgba(0,0,0,0.06);}
+
+/* TABLES */
+.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.data-table th{text-align:left;padding:8px 10px;font-size:10px;font-weight:600;color:#9C9A96;border-bottom:0.5px solid #D5D3CC;text-transform:uppercase;letter-spacing:0.05em;}
+.data-table td{padding:9px 10px;border-bottom:0.5px solid #F5F5F0;vertical-align:middle;}
+.data-table tr:hover td{background:#FAFAF8;}
+
+/* FORMS */
+.form-row{margin-bottom:12px;}
+.form-label{font-size:12px;color:#6B6966;display:block;margin-bottom:4px;}
+.form-input{width:100%;padding:8px 10px;border:0.5px solid #D5D3CC;border-radius:8px;background:#fff;font-size:13px;color:#1A1917;font-family:inherit;}
+.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.form-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;align-items:center;justify-content:center;}
+.modal-overlay.open{display:flex;}
+.modal{background:#fff;border-radius:14px;padding:22px;width:480px;max-width:94vw;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.15);}
+.modal-title{font-size:15px;font-weight:600;margin-bottom:16px;}
+.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;}
+
+/* PROTOCOL NOTE */
+.protocol-note{background:#E1F5EE;border:0.5px solid #5DCAA5;border-radius:8px;padding:10px 14px;font-size:12px;color:#085041;margin-bottom:14px;line-height:1.6;}
+
+/* DEA HEADER */
+.dea-header{background:#FCEBEB;border:0.5px solid #F09595;border-radius:8px;padding:10px 14px;font-size:13px;color:#A32D2D;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+
+/* COMMS */
+.client-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid #F5F5F0;}
+.client-row:last-child{border-bottom:none;}
+.avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;}
+.av-teal{background:#E1F5EE;color:#085041;}
+.av-blue{background:#E6F1FB;color:#0C447C;}
+.av-purple{background:#EEEDFE;color:#3C3489;}
+.av-amber{background:#FAEEDA;color:#854F0B;}
+.call-btn{width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;background:#1D9E75;color:#fff;}
+.sms-btn{width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;background:#E6F1FB;color:#0C447C;}
+
+/* INVOICE BUILDER */
+.inv-line-input{width:100%;border:none;font-size:13px;font-family:inherit;background:transparent;color:#1A1917;outline:none;}
+
+/* PAYMENT */
+.pay-method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0;}
+.pay-method-btn{padding:8px;border:0.5px solid #D5D3CC;border-radius:8px;background:#fff;font-size:12px;cursor:pointer;text-align:center;transition:all 0.1s;}
+.pay-method-btn:hover,.pay-method-btn.selected{background:#E1F5EE;border-color:#1D9E75;color:#085041;font-weight:500;}
+
+/* VACCINE */
+.vax-patient-block{background:#fff;border:0.5px solid #E5E3DC;border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.vax-patient-block.overdue{border-color:#E24B4A;}
+.vax-patient-block.due-soon{border-color:#BA7517;}
+.vax-patient-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;cursor:pointer;}
+.vax-patient-header:hover{background:#FAFAF8;}
+
+/* FINANCIAL */
+.fin-chart-bar{height:8px;background:#E1F5EE;border-radius:4px;overflow:hidden;margin-top:4px;}
+.fin-chart-fill{height:100%;background:#1D9E75;border-radius:4px;}
 </style>
 </head>
 <body>
 <div id="app">
+
+<!-- SIDEBAR -->
 <div id="sidebar">
-<div class="logo">
-<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><ellipse cx="14" cy="17" rx="4.5" ry="4" fill="#1D9E75"/><ellipse cx="8" cy="13" rx="2.2" ry="3" fill="#1D9E75"/><ellipse cx="20" cy="13" rx="2.2" ry="3" fill="#1D9E75"/><ellipse cx="10.5" cy="10" rx="1.8" ry="2.5" fill="#1D9E75"/><ellipse cx="17.5" cy="10" rx="1.8" ry="2.5" fill="#1D9E75"/></svg>
-<div class="logo-name">Furever Companions</div>
-<div class="logo-sub">Veterinary Care</div>
+  <div class="logo-wrap">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:6px;"><ellipse cx="14" cy="17" rx="4.5" ry="4" fill="#1D9E75"/><ellipse cx="8" cy="13" rx="2.2" ry="3" fill="#1D9E75"/><ellipse cx="20" cy="13" rx="2.2" ry="3" fill="#1D9E75"/><ellipse cx="10.5" cy="10" rx="1.8" ry="2.5" fill="#1D9E75"/><ellipse cx="17.5" cy="10" rx="1.8" ry="2.5" fill="#1D9E75"/></svg>
+    <div class="logo-name">Furever Companions</div>
+    <div class="logo-sub">Veterinary Care · New Castle County</div>
+  </div>
+  <div class="nav-section">Records</div>
+  <div class="nav-item active" onclick="showPanel('patients',this)">🐾 Patients</div>
+  <div class="nav-item" onclick="showPanel('soap',this)">📋 SOAP Notes</div>
+  <div class="nav-section">Billing</div>
+  <div class="nav-item" onclick="showPanel('invoice',this)">🧾 Invoices</div>
+  <div class="nav-item" onclick="showPanel('payments',this)">💳 Payments</div>
+  <div class="nav-item" onclick="showPanel('financial',this)">📊 Financial</div>
+  <div class="nav-section">Pharmacy</div>
+  <div class="nav-item" onclick="showPanel('inventory',this)">💊 Inventory</div>
+  <div class="nav-item" onclick="showPanel('dea',this)">🔒 DEA Log</div>
+  <div class="nav-section">Care</div>
+  <div class="nav-item" onclick="showPanel('vaccines',this)">💉 Vaccine Reminders</div>
+  <div class="nav-item" onclick="showPanel('comms',this)">📱 Communications</div>
+  <div class="sidebar-footer">DEA #: FC-0000001<br>302-356-1199</div>
 </div>
-<div class="nav-section">Records</div>
-<div class="nav-item active" onclick="showPanel('patients',this)"><span>🐾</span> Patients</div>
-<div class="nav-item" onclick="showPanel('soap',this)"><span>📋</span> SOAP Notes</div>
-<div class="nav-section">Billing</div>
-<div class="nav-item" onclick="showPanel('invoice',this)"><span>🧾</span> Invoices</div>
-<div class="nav-item" onclick="showPanel('payments',this)"><span>💳</span> Payments</div>
-<div class="nav-section">Pharmacy</div>
-<div class="nav-item" onclick="showPanel('inventory',this)"><span>💊</span> Inventory</div>
-<div class="nav-item" onclick="showPanel('dea',this)"><span>🔒</span> DEA Log</div>
-<div class="nav-section">Communication</div>
-<div class="nav-item" onclick="showPanel('vaccines',this)"><span>💉</span> Vaccines</div>
-<div class="nav-item" onclick="showPanel('comms',this)"><span>📱</span> Comms</div>
-<div class="nav-section">Reports</div>
-<div class="nav-item" onclick="showPanel('financial',this)"><span>📊</span> Financial</div>
-<div class="sidebar-footer" style="margin-top:auto;padding:12px 16px;border-top:0.5px solid #E5E3DC;font-size:11px;color:#6B6966;">New Castle County, DE<br>DEA #: FC-0000001</div>
-</div>
+
+<!-- MAIN -->
 <div id="main">
-<div class="topbar">
-<div class="topbar-title" id="topbar-title">Patients</div>
-<div style="display:flex;gap:8px;">
-<button class="btn btn-sm" onclick="openModal('newPatient')">+ New Patient</button>
-<button class="btn btn-primary btn-sm" onclick="openModal('newVisit')">+ New Visit</button>
-</div>
-</div>
-<div class="content">
+  <div class="topbar">
+    <div class="topbar-title" id="topbar-title">Patients</div>
+    <div class="topbar-actions">
+      <button class="btn btn-sm" onclick="openModal('newPatient')">+ New Patient</button>
+      <button class="btn btn-primary btn-sm" onclick="openModal('newVisit')">+ New Visit</button>
+    </div>
+  </div>
+  <div class="content">
 
-<div class="panel active" id="panel-patients">
-<div class="stat-row">
-<div class="stat-card"><div class="stat-label">Active Patients</div><div class="stat-val" style="color:#1D9E75" id="stat-patients">0</div></div>
-<div class="stat-card"><div class="stat-label">Visits This Month</div><div class="stat-val" id="stat-visits">0</div></div>
-<div class="stat-card"><div class="stat-label">Open Invoices</div><div class="stat-val" style="color:#BA7517" id="stat-invoices">0</div></div>
-<div class="stat-card"><div class="stat-label">Vaccines Due</div><div class="stat-val" style="color:#E24B4A" id="stat-vaccines">0</div></div>
+    <!-- PATIENTS PANEL -->
+    <div class="panel active" id="panel-patients">
+      <div id="patient-list-view">
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-label">Active Patients</div><div class="stat-val" style="color:#1D9E75" id="stat-pts">0</div></div>
+          <div class="stat-card"><div class="stat-label">Visits This Month</div><div class="stat-val" id="stat-visits">0</div></div>
+          <div class="stat-card"><div class="stat-label">Open Invoices</div><div class="stat-val" style="color:#BA7517" id="stat-inv">0</div></div>
+          <div class="stat-card"><div class="stat-label">Vaccines Due</div><div class="stat-val" style="color:#E24B4A" id="stat-vax">0</div></div>
+        </div>
+        <input class="search-input" type="text" placeholder="Search patient or owner..." oninput="filterPatients(this.value)">
+        <div class="patient-grid" id="patient-grid"></div>
+      </div>
+
+      <!-- PATIENT DETAIL -->
+      <div id="patient-detail">
+        <button class="btn btn-sm" style="margin-bottom:14px;" onclick="backToPatients()">← Back to patients</button>
+        <div class="detail-layout">
+          <div class="detail-sidebar">
+            <div class="card">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <div style="font-size:32px;" id="detail-emoji">🐾</div>
+                <div>
+                  <div style="font-size:18px;font-weight:700;" id="detail-name">—</div>
+                  <div style="font-size:12px;color:#6B6966;" id="detail-species-line">—</div>
+                </div>
+              </div>
+              <div id="detail-alert-wrap" style="display:none;margin-bottom:10px;">
+                <div class="alert-banner" id="detail-alert"></div>
+              </div>
+              <div class="card-title">Patient Info</div>
+              <div class="field-row"><span class="field-label">DOB</span><span class="field-value" id="detail-dob">—</span></div>
+              <div class="field-row"><span class="field-label">Sex</span><span class="field-value" id="detail-sex">—</span></div>
+              <div class="field-row"><span class="field-label">Weight</span><span class="field-value" id="detail-wt">—</span></div>
+              <div class="field-row"><span class="field-label">Microchip</span><span class="field-value" style="font-size:11px;" id="detail-chip">—</span></div>
+            </div>
+            <div class="card">
+              <div class="card-title">Owner / Client</div>
+              <div class="field-row"><span class="field-label">Name</span><span class="field-value" id="detail-owner">—</span></div>
+              <div class="field-row"><span class="field-label">Phone</span><span class="field-value" id="detail-phone">—</span></div>
+              <div class="field-row"><span class="field-label">Email</span><span class="field-value" style="font-size:11px;" id="detail-email">—</span></div>
+              <div class="field-row"><span class="field-label">Address</span><span class="field-value" style="font-size:11px;" id="detail-address">—</span></div>
+              <div style="margin-top:10px;display:flex;gap:6px;">
+                <button class="btn btn-sm btn-primary" id="detail-call-btn">📞 Call</button>
+                <button class="btn btn-sm" style="background:#E6F1FB;color:#0C447C;border-color:#85B7EB;" id="detail-sms-btn">💬 SMS</button>
+              </div>
+            </div>
+            <div class="card" id="detail-vax-card">
+              <div class="card-title">Vaccines</div>
+              <div id="detail-vax-list"></div>
+              <button class="btn btn-sm" style="margin-top:8px;width:100%;" onclick="openModal('logVax')">+ Log Vaccine</button>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="card">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div class="card-title" style="margin-bottom:0;">Current Medications</div>
+                <button class="btn btn-sm" onclick="openModal('addMed')">+ Add Med</button>
+              </div>
+              <div id="detail-meds">
+                <div style="font-size:13px;color:#9C9A96;">No medications on file.</div>
+              </div>
+            </div>
+            <div class="card">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <div class="card-title" style="margin-bottom:0;">Visit History</div>
+                <button class="btn btn-sm btn-primary" onclick="openNewVisitForCurrent()">+ New Visit</button>
+              </div>
+              <div id="detail-visits"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOAP PANEL -->
+    <div class="panel" id="panel-soap">
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
+          <select class="form-input" style="width:220px;" id="soap-pt-select" onchange="loadPatientSOAP()">
+            <option value="">Select patient...</option>
+          </select>
+          <div style="display:flex;gap:6px;">
+            <button class="btn btn-sm" onclick="openModal('addRx')">+ Rx</button>
+            <button class="btn btn-primary btn-sm" onclick="saveSOAP()">Save Note</button>
+          </div>
+        </div>
+        <div class="vitals-row">
+          <div class="vital-pill"><span class="vital-lbl">Temp °F</span><input type="text" id="v-temp" style="width:50px;border:none;background:transparent;font-size:13px;font-weight:600;text-align:center;outline:none;" placeholder="—"></div>
+          <div class="vital-pill"><span class="vital-lbl">HR bpm</span><input type="text" id="v-hr" style="width:45px;border:none;background:transparent;font-size:13px;font-weight:600;text-align:center;outline:none;" placeholder="—"></div>
+          <div class="vital-pill"><span class="vital-lbl">RR</span><input type="text" id="v-rr" style="width:40px;border:none;background:transparent;font-size:13px;font-weight:600;text-align:center;outline:none;" placeholder="—"></div>
+          <div class="vital-pill"><span class="vital-lbl">Wt lbs</span><input type="text" id="v-wt" style="width:50px;border:none;background:transparent;font-size:13px;font-weight:600;text-align:center;outline:none;" placeholder="—"></div>
+          <div class="vital-pill"><span class="vital-lbl">BCS /9</span><input type="text" id="v-bcs" style="width:40px;border:none;background:transparent;font-size:13px;font-weight:600;text-align:center;outline:none;" placeholder="—"></div>
+          <div class="vital-pill"><span class="vital-lbl">SpO2 %</span><input type="text" id="v-spo2" style="width:40px;border:none;background:transparent;font-size:13px;font-weight:600;text-align:center;outline:none;" placeholder="—"></div>
+        </div>
+        <div class="soap-grid">
+          <div class="soap-box"><div class="soap-head"><div class="soap-letter sl-s">S</div><span class="soap-label">Subjective</span></div><textarea class="soap-ta" id="soap-s" placeholder="Chief complaint, history, owner observations..."></textarea></div>
+          <div class="soap-box"><div class="soap-head"><div class="soap-letter sl-o">O</div><span class="soap-label">Objective</span></div><textarea class="soap-ta" id="soap-o" placeholder="Physical exam findings, diagnostics, lab results..."></textarea></div>
+          <div class="soap-box"><div class="soap-head"><div class="soap-letter sl-a">A</div><span class="soap-label">Assessment</span></div><textarea class="soap-ta" id="soap-a" placeholder="Diagnosis / differentials..."></textarea></div>
+          <div class="soap-box"><div class="soap-head"><div class="soap-letter sl-p">P</div><span class="soap-label">Plan</span></div><textarea class="soap-ta" id="soap-p" placeholder="Treatments, Rx, follow-up instructions..."></textarea></div>
+        </div>
+        <div id="soap-rx-list" style="margin-bottom:10px;"></div>
+        <div id="soap-visit-history"></div>
+      </div>
+    </div>
+
+    <!-- INVOICE PANEL -->
+    <div class="panel" id="panel-invoice">
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab('inv','open',this)">Open</div>
+        <div class="tab" onclick="switchTab('inv','paid',this)">Paid</div>
+        <div class="tab" onclick="switchTab('inv','new',this)">New Invoice</div>
+      </div>
+      <div id="inv-open">
+        <table class="data-table"><thead><tr><th>Invoice #</th><th>Patient</th><th>Client</th><th>Date</th><th>Amount</th><th>Status</th><th></th></tr></thead>
+        <tbody id="inv-open-body"></tbody></table>
+      </div>
+      <div id="inv-paid" style="display:none;">
+        <table class="data-table"><thead><tr><th>Invoice #</th><th>Patient</th><th>Client</th><th>Date</th><th>Amount</th><th>Method</th></tr></thead>
+        <tbody id="inv-paid-body"></tbody></table>
+      </div>
+      <div id="inv-new" style="display:none;">
+        <div class="card" style="max-width:660px;">
+          <div class="form-grid2" style="margin-bottom:12px;">
+            <div class="form-row"><label class="form-label">Patient</label><select class="form-input" id="inv-pt-sel"></select></div>
+            <div class="form-row"><label class="form-label">Visit Date</label><input type="date" class="form-input" id="inv-date"></div>
+          </div>
+          <table class="data-table"><thead><tr><th style="width:45%">Description</th><th style="width:10%">Qty</th><th style="width:18%">Unit Price</th><th style="width:15%">Total</th><th style="width:12%"></th></tr></thead>
+          <tbody id="inv-lines"></tbody></table>
+          <button class="btn btn-sm" style="margin-top:8px;" onclick="addInvLine()">+ Add Line</button>
+          <div style="margin-top:14px;text-align:right;font-size:13px;">
+            <div>Subtotal: <strong id="inv-sub">$0.00</strong></div>
+            <div style="font-size:16px;font-weight:700;margin-top:4px;">Total: <span id="inv-total">$0.00</span></div>
+          </div>
+          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px;">
+            <button class="btn btn-sm">Save Draft</button>
+            <button class="btn btn-primary btn-sm" onclick="finalizeInvoice()">Finalize & Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAYMENTS PANEL -->
+    <div class="panel" id="panel-payments">
+      <div class="card" style="max-width:480px;">
+        <div class="modal-title">Record Payment</div>
+        <div class="form-row"><label class="form-label">Invoice</label><select class="form-input" id="pay-inv-sel"></select></div>
+        <div class="form-row"><label class="form-label">Amount ($)</label><input type="number" class="form-input" id="pay-amt" placeholder="0.00" step="0.01"></div>
+        <div class="form-row"><label class="form-label">Payment Method</label>
+          <div class="pay-method-grid" id="pay-method-grid">
+            <div class="pay-method-btn" onclick="selectPayMethod(this,'Credit Card')">💳 Credit Card</div>
+            <div class="pay-method-btn" onclick="selectPayMethod(this,'ACH Transfer')">🏦 ACH Transfer</div>
+            <div class="pay-method-btn" onclick="selectPayMethod(this,'Cash')">💵 Cash</div>
+            <div class="pay-method-btn" onclick="selectPayMethod(this,'Check')">📝 Check</div>
+            <div class="pay-method-btn" onclick="selectPayMethod(this,'Venmo')">📲 Venmo</div>
+            <div class="pay-method-btn" onclick="selectPayMethod(this,'Zelle')">⚡ Zelle</div>
+          </div>
+          <input type="hidden" id="pay-method-val">
+        </div>
+        <div class="form-row"><label class="form-label">Notes (check #, confirmation, etc.)</label><input type="text" class="form-input" id="pay-notes" placeholder="Optional"></div>
+        <button class="btn btn-primary" style="width:100%;margin-top:4px;" onclick="processPayment()">Record Payment</button>
+      </div>
+    </div>
+
+    <!-- FINANCIAL PANEL -->
+    <div class="panel" id="panel-financial">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-label">Revenue This Month</div><div class="stat-val" style="color:#1D9E75" id="fin-month">$0</div></div>
+        <div class="stat-card"><div class="stat-label">Outstanding</div><div class="stat-val" style="color:#BA7517" id="fin-owed">$0</div></div>
+        <div class="stat-card"><div class="stat-label">Total Collected</div><div class="stat-val" id="fin-collected">$0</div></div>
+        <div class="stat-card"><div class="stat-label">Active Patients</div><div class="stat-val" id="fin-pts">0</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="card">
+          <div class="card-title">Payment Method Breakdown</div>
+          <table class="data-table"><thead><tr><th>Method</th><th>Count</th><th>Total</th></tr></thead>
+          <tbody id="fin-methods"></tbody></table>
+        </div>
+        <div class="card">
+          <div class="card-title">Recent Transactions</div>
+          <table class="data-table"><thead><tr><th>Date</th><th>Patient</th><th>Amount</th><th>Method</th></tr></thead>
+          <tbody id="fin-recent"></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTORY PANEL -->
+    <div class="panel" id="panel-inventory">
+      <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center;">
+        <input class="search-input" style="margin-bottom:0;flex:1;" type="text" placeholder="Search drug or supply..." oninput="filterInventory(this.value)">
+        <button class="btn btn-sm" onclick="openModal('addItem')">+ Add Item</button>
+      </div>
+      <div class="tabs">
+        <div class="tab active" onclick="filterInvCat('all',this)">All</div>
+        <div class="tab" onclick="filterInvCat('low',this)">Low Stock ⚠</div>
+        <div class="tab" onclick="filterInvCat('controlled',this)">Controlled</div>
+        <div class="tab" onclick="filterInvCat('rx',this)">Rx Only</div>
+      </div>
+      <table class="data-table"><thead><tr><th>Name</th><th>Category</th><th>On Hand</th><th>Reorder At</th><th>Schedule</th><th>Expires</th><th>Status</th></tr></thead>
+      <tbody id="inv-body"></tbody></table>
+    </div>
+
+    <!-- DEA LOG PANEL -->
+    <div class="panel" id="panel-dea">
+      <div class="dea-header">🔒 Controlled Substance Log — DEA #FC-0000001 — Furever Companions Veterinary Care</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <div class="tabs" style="margin-bottom:0;">
+          <div class="tab active" onclick="filterDEA('all',this)">All Entries</div>
+          <div class="tab" onclick="filterDEA('Dispensed',this)">Dispensed</div>
+          <div class="tab" onclick="filterDEA('Wasted',this)">Wasted</div>
+          <div class="tab" onclick="filterDEA('Received',this)">Received</div>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <button class="btn btn-sm" onclick="openModal('deaEntry')">+ Log Entry</button>
+          <button class="btn btn-sm" onclick="exportDEA()">Export CSV</button>
+        </div>
+      </div>
+      <table class="data-table"><thead><tr><th>Date/Time</th><th>Drug</th><th>Schedule</th><th>Amount</th><th>Type</th><th>Patient</th><th>Lot #</th><th>Balance</th><th>Initials</th></tr></thead>
+      <tbody id="dea-body"></tbody></table>
+      <div style="margin-top:12px;font-size:12px;color:#9C9A96;">Records retained per DEA 21 CFR 1304 (minimum 2 years). Entries locked after 24 hours.</div>
+    </div>
+
+    <!-- VACCINES PANEL -->
+    <div class="panel" id="panel-vaccines">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-label">Overdue</div><div class="stat-val" style="color:#E24B4A" id="vax-overdue">0</div></div>
+        <div class="stat-card"><div class="stat-label">Due ≤30 Days</div><div class="stat-val" style="color:#BA7517" id="vax-soon">0</div></div>
+        <div class="stat-card"><div class="stat-label">Due 31–90 Days</div><div class="stat-val" style="color:#185FA5" id="vax-upcoming">0</div></div>
+        <div class="stat-card"><div class="stat-label">Current</div><div class="stat-val" style="color:#1D9E75" id="vax-current">0</div></div>
+      </div>
+      <div class="protocol-note"><strong>Your protocols:</strong> Rabies — 1yr first dose, then 3yr · DHPP/DHLPP/FVRCP — q3yr · Lepto/Lyme/Bordetella/Influenza/FeLV — Annual</div>
+      <input class="search-input" type="text" placeholder="Search patient..." oninput="filterVax(this.value)">
+      <div class="tabs">
+        <div class="tab active" onclick="filterVaxStatus('all',this)">All</div>
+        <div class="tab" onclick="filterVaxStatus('overdue',this)">Overdue</div>
+        <div class="tab" onclick="filterVaxStatus('soon',this)">Due Soon</div>
+        <div class="tab" onclick="filterVaxStatus('current',this)">Current</div>
+      </div>
+      <div id="vax-list"></div>
+    </div>
+
+    <!-- COMMS PANEL -->
+    <div class="panel" id="panel-comms">
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab('comms','clients',this)">Clients</div>
+        <div class="tab" onclick="switchTab('comms','log',this)">Call Log</div>
+        <div class="tab" onclick="switchTab('comms','sms',this)">SMS</div>
+        <div class="tab" onclick="switchTab('comms','templates',this)">Templates</div>
+      </div>
+      <div id="comms-clients"><div id="comms-client-list"></div></div>
+      <div id="comms-log" style="display:none;">
+        <table class="data-table"><thead><tr><th>Date/Time</th><th>Client</th><th>Type</th><th>Duration</th><th>Notes</th><th></th></tr></thead>
+        <tbody id="call-log-body"></tbody></table>
+      </div>
+      <div id="comms-sms" style="display:none;"><div id="sms-list-content"></div></div>
+      <div id="comms-templates" style="display:none;">
+        <div style="font-size:13px;font-weight:600;margin-bottom:8px;">Vaccine Reminders</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#085041;margin-bottom:4px;">OVERDUE</div>Hi [Owner], this is Dr. Halko at Furever Companions. [Pet] is overdue for [Vaccine]. Please call us at 302-356-1199 to schedule.</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#085041;margin-bottom:4px;">DUE SOON</div>Hi [Owner]! [Pet] is due for [Vaccine] within the next 30 days. Reply or call 302-356-1199 to schedule.</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#A32D2D;margin-bottom:4px;">RABIES 1-YEAR BOOSTER</div>Hi [Owner], [Pet] is due for their important 1-year rabies booster. Please call 302-356-1199 to schedule.</div>
+        <div style="font-size:13px;font-weight:600;margin:14px 0 8px;">Appointments</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#0C447C;margin-bottom:4px;">CONFIRMATION</div>Hi [Owner]! Confirming [Pet]'s appointment on [Date]. Reply YES to confirm or call to reschedule. — Furever Companions</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#0C447C;margin-bottom:4px;">24-HOUR REMINDER</div>Hi [Owner], [Pet] has an appointment tomorrow. Please withhold food after 10pm if anesthesia is planned. See you soon!</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#3C3489;margin-bottom:4px;">FOLLOW-UP</div>Hi [Owner], checking in on [Pet] after yesterday's visit. Any questions about the discharge instructions? We're here for you. — Dr. Halko</div>
+        <div class="card" style="margin-bottom:8px;cursor:pointer;" onclick="copyTemplate(this)"><div style="font-size:10px;font-weight:600;color:#3C3489;margin-bottom:4px;">LAB RESULTS</div>Hi [Owner], [Pet]'s lab results are back. I'll call you shortly to discuss. — Dr. Halko, Furever Companions</div>
+      </div>
+    </div>
+
+  </div>
 </div>
-<input class="search-input" type="text" placeholder="Search patient or client..." oninput="filterPatients(this.value)">
-<div class="patient-grid" id="patient-grid"></div>
 </div>
 
-<div class="panel" id="panel-soap">
-<div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-<select class="form-input" style="width:200px;" id="soap-patient-select" onchange="loadPatientSOAP()">
-<option value="">Select patient...</option>
-</select>
-<div style="display:flex;gap:6px;">
-<button class="btn btn-sm" onclick="openModal('addRx')">+ Rx</button>
-<button class="btn btn-primary btn-sm" onclick="saveSOAP()">Save Note</button>
-</div>
-</div>
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-<div style="background:#F5F5F0;border-radius:8px;padding:6px 10px;font-size:12px;">Temp: <input type="text" id="v-temp" style="width:45px;border:none;background:transparent;font-size:12px;" placeholder="°F"></div>
-<div style="background:#F5F5F0;border-radius:8px;padding:6px 10px;font-size:12px;">HR: <input type="text" id="v-hr" style="width:45px;border:none;background:transparent;font-size:12px;" placeholder="bpm"></div>
-<div style="background:#F5F5F0;border-radius:8px;padding:6px 10px;font-size:12px;">RR: <input type="text" id="v-rr" style="width:35px;border:none;background:transparent;font-size:12px;" placeholder=""></div>
-<div style="background:#F5F5F0;border-radius:8px;padding:6px 10px;font-size:12px;">Wt: <input type="text" id="v-wt" style="width:45px;border:none;background:transparent;font-size:12px;" placeholder="lbs"></div>
-<div style="background:#F5F5F0;border-radius:8px;padding:6px 10px;font-size:12px;">BCS: <input type="text" id="v-bcs" style="width:35px;border:none;background:transparent;font-size:12px;" placeholder="/9"></div>
-</div>
-<div class="soap-grid">
-<div class="soap-section"><div class="soap-header"><div style="width:22px;height:22px;border-radius:50%;background:#E6F1FB;color:#0C447C;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;">S</div><span style="font-size:12px;font-weight:500;color:#6B6966;">Subjective</span></div><textarea class="soap-textarea" id="soap-s" placeholder="Chief complaint, history, owner observations..."></textarea></div>
-<div class="soap-section"><div class="soap-header"><div style="width:22px;height:22px;border-radius:50%;background:#E1F5EE;color:#085041;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;">O</div><span style="font-size:12px;font-weight:500;color:#6B6966;">Objective</span></div><textarea class="soap-textarea" id="soap-o" placeholder="Physical exam findings, diagnostics..."></textarea></div>
-<div class="soap-section"><div class="soap-header"><div style="width:22px;height:22px;border-radius:50%;background:#FAEEDA;color:#854F0B;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;">A</div><span style="font-size:12px;font-weight:500;color:#6B6966;">Assessment</span></div><textarea class="soap-textarea" id="soap-a" placeholder="Diagnosis / differentials..."></textarea></div>
-<div class="soap-section"><div class="soap-header"><div style="width:22px;height:22px;border-radius:50%;background:#EEEDFE;color:#3C3489;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;">P</div><span style="font-size:12px;font-weight:500;color:#6B6966;">Plan</span></div><textarea class="soap-textarea" id="soap-p" placeholder="Treatments, Rx, follow-up..."></textarea></div>
-</div>
-<div id="soap-history" style="margin-top:12px;"></div>
-</div>
-</div>
-
-<div class="panel" id="panel-invoice">
-<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-<div class="tabs">
-<div class="tab active" onclick="switchTab('inv','open',this)">Open</div>
-<div class="tab" onclick="switchTab('inv','paid',this)">Paid</div>
-<div class="tab" onclick="switchTab('inv','new',this)">New Invoice</div>
-</div>
-</div>
-<div id="inv-open"><table><thead><tr><th>Invoice</th><th>Patient</th><th>Client</th><th>Date</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody id="inv-open-body"><tr><td colspan="7" style="text-align:center;color:#6B6966;padding:20px;">No open invoices</td></tr></tbody></table></div>
-<div id="inv-paid" style="display:none;"><table><thead><tr><th>Invoice</th><th>Patient</th><th>Client</th><th>Date</th><th>Amount</th><th>Method</th></tr></thead><tbody id="inv-paid-body"><tr><td colspan="6" style="text-align:center;color:#6B6966;padding:20px;">No paid invoices</td></tr></tbody></table></div>
-<div id="inv-new" style="display:none;">
-<div class="card" style="max-width:640px;">
-<div class="form-grid2" style="margin-bottom:12px;">
-<div class="form-row"><label class="form-label">Patient</label><select class="form-input" id="inv-patient-select"></select></div>
-<div class="form-row"><label class="form-label">Visit Date</label><input type="date" class="form-input" id="inv-date"></div>
-</div>
-<table id="inv-table"><thead><tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Total</th><th></th></tr></thead><tbody id="inv-lines"></tbody></table>
-<button class="btn btn-sm" style="margin-top:8px;" onclick="addInvLine()">+ Add Line</button>
-<div style="margin-top:12px;text-align:right;">
-<div style="font-size:13px;margin-bottom:4px;">Subtotal: <strong id="inv-subtotal">$0.00</strong></div>
-<div style="font-size:15px;font-weight:500;">Total: <strong id="inv-total">$0.00</strong></div>
-</div>
-<div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end;">
-<button class="btn btn-sm">Save Draft</button>
-<button class="btn btn-primary btn-sm" onclick="finalizeInvoice()">Finalize & Send</button>
-</div>
-</div>
-</div>
-</div>
-
-<div class="panel" id="panel-payments">
-<div class="card" style="max-width:500px;">
-<div class="modal-title">Accept Payment</div>
-<div class="form-row"><label class="form-label">Invoice</label><select class="form-input" id="pay-invoice"></select></div>
-<div class="form-row"><label class="form-label">Amount</label><input type="number" class="form-input" id="pay-amount" placeholder="0.00"></div>
-<div class="form-row"><label class="form-label">Payment Method</label>
-<select class="form-input" id="pay-method">
-<option>Credit Card (Stripe)</option>
-<option>ACH Bank Transfer</option>
-<option>Cash</option>
-<option>Check</option>
-<option>Venmo</option>
-<option>Zelle</option>
-<option>PayPal</option>
-</select></div>
-<div class="form-row"><label class="form-label">Notes</label><input type="text" class="form-input" id="pay-notes" placeholder="Check #, confirmation, etc."></div>
-<button class="btn btn-primary" style="width:100%;margin-top:4px;" onclick="processPayment()">Record Payment</button>
-</div>
-</div>
-
-<div class="panel" id="panel-inventory">
-<div style="display:flex;gap:8px;margin-bottom:12px;">
-<input class="search-input" style="margin-bottom:0;" type="text" placeholder="Search inventory..." oninput="filterInventory(this.value)">
-<button class="btn btn-sm" onclick="openModal('addItem')">+ Add Item</button>
-</div>
-<table><thead><tr><th>Name</th><th>Category</th><th>On Hand</th><th>Reorder At</th><th>Schedule</th><th>Expires</th><th>Status</th></tr></thead><tbody id="inv-body"></tbody></table>
-</div>
-
-<div class="panel" id="panel-dea">
-<div style="background:#FCEBEB;border:0.5px solid #F09595;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#791F1F;">🔒 Controlled Substance Log — DEA Registration FC-0000001 — Furever Companions Veterinary Care</div>
-<div style="display:flex;justify-content:space-between;margin-bottom:12px;">
-<div class="tabs">
-<div class="tab active" onclick="switchTab('dea','all',this)">All</div>
-<div class="tab" onclick="switchTab('dea','dispensed',this)">Dispensed</div>
-<div class="tab" onclick="switchTab('dea','wasted',this)">Wasted</div>
-<div class="tab" onclick="switchTab('dea','received',this)">Received</div>
-</div>
-<button class="btn btn-sm" onclick="openModal('deaEntry')">+ Log Entry</button>
-</div>
-<table><thead><tr><th>Date/Time</th><th>Drug</th><th>Schedule</th><th>Amount</th><th>Type</th><th>Patient</th><th>Lot #</th><th>Balance</th><th>Initials</th></tr></thead><tbody id="dea-body"></tbody></table>
-</div>
-
-<div class="panel" id="panel-vaccines">
-<div class="stat-row" style="grid-template-columns:repeat(4,1fr);">
-<div class="stat-card"><div class="stat-label">Overdue</div><div class="stat-val" style="color:#E24B4A" id="vax-overdue">0</div></div>
-<div class="stat-card"><div class="stat-label">Due ≤30 Days</div><div class="stat-val" style="color:#BA7517" id="vax-soon">0</div></div>
-<div class="stat-card"><div class="stat-label">Due 31-90 Days</div><div class="stat-val" style="color:#185FA5" id="vax-upcoming">0</div></div>
-<div class="stat-card"><div class="stat-label">Current</div><div class="stat-val" style="color:#1D9E75" id="vax-current">0</div></div>
-</div>
-<input class="search-input" type="text" placeholder="Search patient..." oninput="filterVaccines(this.value)">
-<div id="vaccine-list"></div>
-</div>
-
-<div class="panel" id="panel-comms">
-<div class="tabs">
-<div class="tab active" onclick="switchTab('comms','clients',this)">Clients</div>
-<div class="tab" onclick="switchTab('comms','log',this)">Call Log</div>
-<div class="tab" onclick="switchTab('comms','sms',this)">SMS</div>
-<div class="tab" onclick="switchTab('comms','templates',this)">Templates</div>
-</div>
-<div id="comms-clients">
-<div id="comms-client-list"></div>
-</div>
-<div id="comms-log" style="display:none;"><table><thead><tr><th>Date</th><th>Client</th><th>Type</th><th>Duration</th><th>Notes</th></tr></thead><tbody id="call-log-body"><tr><td colspan="5" style="text-align:center;color:#6B6966;padding:20px;">No calls logged yet</td></tr></tbody></table></div>
-<div id="comms-sms" style="display:none;"><div id="sms-list"></div></div>
-<div id="comms-templates" style="display:none;" id="templates-list">
-<div style="margin-bottom:8px;font-size:13px;font-weight:500;">Vaccine Reminders</div>
-<div style="background:#F5F5F0;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px;">Hi [Owner], this is Dr. Halko at Furever Companions. [Pet] is overdue for [Vaccine]. Please call us at 302-356-1199 to schedule.</div>
-<div style="background:#F5F5F0;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px;">Hi [Owner]! [Pet] is due for [Vaccine] within 30 days. Reply or call 302-356-1199 to book.</div>
-<div style="margin-top:12px;margin-bottom:8px;font-size:13px;font-weight:500;">Appointments</div>
-<div style="background:#F5F5F0;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px;">Hi [Owner]! Confirming [Pet]'s appointment on [Date]. Reply YES to confirm. — Furever Companions</div>
-<div style="background:#F5F5F0;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px;">Hi [Owner], [Pet] has an appointment tomorrow. Please withhold food after 10pm if anesthesia is planned.</div>
-<div style="margin-top:12px;margin-bottom:8px;font-size:13px;font-weight:500;">Follow-ups</div>
-<div style="background:#F5F5F0;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px;">Hi [Owner], checking in on [Pet] after yesterday's visit. Any questions? We're here for you. — Dr. Halko</div>
-</div>
-</div>
-
-<div class="panel" id="panel-financial">
-<div class="stat-row">
-<div class="stat-card"><div class="stat-label">Revenue This Month</div><div class="stat-val" style="color:#1D9E75" id="fin-month">$0</div></div>
-<div class="stat-card"><div class="stat-label">Outstanding</div><div class="stat-val" style="color:#BA7517" id="fin-outstanding">$0</div></div>
-<div class="stat-card"><div class="stat-label">Paid This Month</div><div class="stat-val" id="fin-paid">$0</div></div>
-<div class="stat-card"><div class="stat-label">Total Patients</div><div class="stat-val" id="fin-patients">0</div></div>
-</div>
-<div class="card" style="margin-top:12px;">
-<div style="font-size:14px;font-weight:500;margin-bottom:12px;">Payment Breakdown</div>
-<table><thead><tr><th>Method</th><th>Count</th><th>Total</th></tr></thead><tbody id="fin-breakdown"><tr><td colspan="3" style="text-align:center;color:#6B6966;padding:20px;">No payments recorded yet</td></tr></tbody></table>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
+<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
-<div class="modal" id="modal-body"></div>
+  <div class="modal" id="modal-body"></div>
 </div>
 
 <script>
-const API = '';
-let STATE = {
+// ============================================================
+// STATE — persisted in localStorage
+// ============================================================
+let S = {
   patients: JSON.parse(localStorage.getItem('fc_patients')||'[]'),
-  soapNotes: JSON.parse(localStorage.getItem('fc_soap')||'[]'),
+  soap:     JSON.parse(localStorage.getItem('fc_soap')||'[]'),
   invoices: JSON.parse(localStorage.getItem('fc_invoices')||'[]'),
   payments: JSON.parse(localStorage.getItem('fc_payments')||'[]'),
-  inventory: JSON.parse(localStorage.getItem('fc_inventory')||'[]'),
-  deaLog: JSON.parse(localStorage.getItem('fc_dea')||'[]'),
+  inventory:JSON.parse(localStorage.getItem('fc_inventory')||'[]'),
+  dea:      JSON.parse(localStorage.getItem('fc_dea')||'[]'),
   vaccines: JSON.parse(localStorage.getItem('fc_vaccines')||'[]'),
-  callLog: JSON.parse(localStorage.getItem('fc_calls')||'[]'),
+  calls:    JSON.parse(localStorage.getItem('fc_calls')||'[]'),
+  meds:     JSON.parse(localStorage.getItem('fc_meds')||'[]'),
 };
+function save(k){ localStorage.setItem('fc_'+k, JSON.stringify(S[k])); }
 
-function save(key){localStorage.setItem('fc_'+key,JSON.stringify(STATE[key]));}
+// ============================================================
+// PRE-LOAD BIG BOY (only if no patients yet)
+// ============================================================
+if(S.patients.length === 0){
+  S.patients.push({
+    id:'pt-bigboy-56',
+    name:'Big Boy',
+    species:'Feline',
+    breed:'Domestic Shorthair',
+    sex:'MN',
+    color:'Brown Tabby/White',
+    dob:'10/09/2012',
+    weight:'16.92',
+    microchip:'985112009122103',
+    rabiesTag:'16147',
+    ownerName:'Laura Price',
+    ownerPhone:'610-444-5462',
+    ownerEmail:'lauraprice527@comcast.net',
+    ownerAddress:'527 Schoolhouse Rd, Kennett Square, PA 19348',
+    zip:'19348',
+    alerts:'DIABETIC — on Bexacat 15mg SID. Monitor BG and ketones.',
+    prevVet:'Padfoot Veterinary Practice / Branmar Veterinary Hospital',
+  });
+  S.vaccines.push(
+    {id:'vax-bb-rabies',ptId:'pt-bigboy-56',vax:'Rabies',given:'2025-06-27',due:'2026-06-27',lot:'',mfr:'Merial Purevax',notes:'1-yr booster — due for 3-yr next'},
+    {id:'vax-bb-fvrcp', ptId:'pt-bigboy-56',vax:'FVRCP', given:'2025-06-26',due:'2028-06-26',lot:'',mfr:'Nobivac',notes:'3-yr'}
+  );
+  S.meds.push(
+    {id:'med-bb-1',ptId:'pt-bigboy-56',drug:'Bexacat (Bexagliflozin) 15mg',dose:'15mg',route:'PO',freq:'SID',dur:'Ongoing',notes:'For control of Diabetes Mellitus. Monitor for hypoglycemia. Rx valid thru 06/08/2026.'},
+  );
+  S.soap.push({
+    id:'note-bb-wellness-2025',
+    patientId:'pt-bigboy-56',
+    date:'06/28/2025',
+    reason:'Annual Wellness + Vaccines',
+    s:'Patient on Bexacat for Diabetes Mellitus diagnosed this year. Owner performing BG curves at home in AM or PM and will email latest results. Was hyporexic initially after starting Bexacat but gained approx 0.5 lbs and seems more himself. Diet: dry and wet food mixed (urinary prescription diets x3 mixed). No vomiting, diarrhea. No pu/pd per owner.',
+    o:'BAR; nervous but very good patient. Hydration normal. Eyes: corneas clear, pupils normal, sclera white, no discharge. Ears: no exudate, no erythema, no malodor. Oral: mild excessive dental calculus, no gingival inflammation, gums P&M, CRT 1-2 sec. CVS: regular rhythm, no murmurs, pulses S/S. Resp: lungs auscult clear bilaterally, no increased RR/RE, trachea clear, no C/S. GI: palpates WNL, no discomfort, no palpable masses. Urogenital: external genitalia WNL, o reports normal eliminations. Integument: haircoat in good condition, no pruritis, no parasites. All palpable LN WNL. No lameness. Neuro: no apparent abnormalities. BCS 8/9 OVERWEIGHT. Wt 16.92 lbs. Temp 101.4°F.',
+    a:'1. Diabetes Mellitus — controlled on Bexacat 15mg SID. Good response to therapy per owner. 2. Periodontal disease AVDC Stage 2 — dental recommended. 3. Overweight BCS 8/9 — recommend weight management.',
+    p:'Administered Rabies (Purevax) SQ RH, FVRCP (Nobivac) SQ RF. Rec care not to regain too much weight. Owner to email latest BG curve results. Monitor ketones. Dental cleaning recommended at next visit. Recheck in 6 months or sooner if concerns.',
+    temp:'101.4',hr:'',rr:'',wt:'16.92',bcs:'8/9',spo2:'',
+  });
+  S.soap.push({
+    id:'note-bb-diabetes-2025',
+    patientId:'pt-bigboy-56',
+    date:'04/19/2025',
+    reason:'Sick Visit — Elevated BG / Diabetes Diagnosis',
+    s:'Patient presents for weight loss. Not eating super well on and off. Currently eating and drinking ok. Concerns: possibly depressed as client\'s mother passed away recently. Weight loss noted. No pu/pd per owner. Diarrhea was present but has resolved since adding dry food.',
+    o:'Ears: brown debris AU. Eyes normal. GI: abdominal palpation normal. CVS: heart normal, no murmurs. Resp: lungs normal. LN all palpate normally. Oral: moderate calc, fractured tooth 204. Musculoskeletal normal. Neuro normal. Skin/haircoat normal. BCS 4/5. Wt 16.6 lbs. UA dipstick: glucose 50mg, pH 5.5, protein trace, all others normal/negative. BG 419 mg/dL (ref 64-170). Full Geriatric Profile submitted to Antech.',
+    a:'1. Diabetes Mellitus — newly diagnosed. BG 419 mg/dL. Glucose in urine confirmed. 2. Otitis externa AU. 3. Periodontal disease AVDC Stage 2 with fractured tooth 204. 4. Weight loss — rule out concurrent disease.',
+    p:'SQ fluids 100mL LRS. Ear cleaning AU. Simplera Otic Solution dispensed. Discussed Bexacat — appropriate candidate as no current diarrhea and eating. Dispensed Bexacat 15mg x14 tabs. Need to recheck blood ketone level in 2 weeks. Discussed labwork results with owner. Referral for dental cleaning recommended.',
+    temp:'',hr:'',rr:'',wt:'16.6',bcs:'4/5',spo2:'',
+  });
+  save('patients'); save('vaccines'); save('soap'); save('meds');
+}
 
-function showPanel(name,el){
+// ============================================================
+// CURRENT PATIENT (for detail view)
+// ============================================================
+let currentPatientId = null;
+let invCatFilter = 'all';
+let deaFilter = 'all';
+let vaxStatusFilter = 'all';
+let vaxSearch = '';
+let selectedPayMethod = '';
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPanel(name, el){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
-  if(el)el.classList.add('active');
-  const titles={patients:'Patients',soap:'SOAP Notes',invoice:'Invoices',payments:'Payments',inventory:'Inventory',dea:'DEA Log',vaccines:'Vaccine Reminders',comms:'Communications',financial:'Financial Reports'};
-  document.getElementById('topbar-title').textContent=titles[name]||name;
-  if(name==='patients')renderPatients();
-  if(name==='inventory')renderInventory();
-  if(name==='dea')renderDEA();
-  if(name==='vaccines')renderVaccines();
-  if(name==='financial')renderFinancial();
-  if(name==='comms')renderComms();
-  if(name==='invoice')renderInvoices();
+  if(el) el.classList.add('active');
+  const titles={patients:'Patients',soap:'SOAP Notes',invoice:'Invoices',payments:'Payments',financial:'Financial Reports',inventory:'Inventory',dea:'DEA Controlled Substance Log',vaccines:'Vaccine Reminders',comms:'Communications'};
+  document.getElementById('topbar-title').textContent = titles[name]||name;
+  if(name==='patients'){ backToPatients(); renderPatients(); }
+  if(name==='soap') updateSelects();
+  if(name==='invoice') renderInvoices();
+  if(name==='payments') renderPaymentPanel();
+  if(name==='financial') renderFinancial();
+  if(name==='inventory') renderInventory();
+  if(name==='dea') renderDEA();
+  if(name==='vaccines') renderVaccines();
+  if(name==='comms') renderComms();
 }
 
+// ============================================================
+// PATIENTS
+// ============================================================
 function renderPatients(list){
-  const pts=list||STATE.patients;
-  document.getElementById('stat-patients').textContent=pts.length;
-  document.getElementById('stat-invoices').textContent=STATE.invoices.filter(i=>i.status==='open').length;
-  document.getElementById('stat-vaccines').textContent=STATE.vaccines.filter(v=>new Date(v.due)<new Date()).length;
-  const g=document.getElementById('patient-grid');
-  if(!pts.length){g.innerHTML='<div style="color:#6B6966;font-size:13px;padding:20px;">No patients yet. Click + New Patient to add your first patient.</div>';return;}
-  g.innerHTML=pts.map(p=>`<div class="patient-card" onclick="openPatientSOAP('${p.id}')">
-    <div style="font-weight:500;font-size:14px;margin-bottom:2px;">${p.name}</div>
-    <div style="font-size:12px;color:#6B6966;">${p.species||''} ${p.breed?'· '+p.breed:''} ${p.sex?'· '+p.sex:''}</div>
-    <div style="font-size:12px;color:#9C9A96;margin-top:4px;">${p.ownerName||''}</div>
-    <div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">
-      <span class="badge badge-teal">${p.zip||'DE'}</span>
-      ${p.species==='Feline'?'<span style="font-size:14px;">🐈</span>':'<span style="font-size:14px;">🐕</span>'}
-    </div>
-  </div>`).join('');
+  const pts = list || S.patients;
+  document.getElementById('stat-pts').textContent = pts.length;
+  document.getElementById('stat-inv').textContent = S.invoices.filter(i=>i.status==='open').length;
+  document.getElementById('stat-vax').textContent = S.vaccines.filter(v=>new Date(v.due)<new Date()).length;
+  document.getElementById('stat-visits').textContent = S.soap.filter(n=>{
+    const d = new Date(n.date); const now = new Date();
+    return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();
+  }).length;
+  const g = document.getElementById('patient-grid');
+  if(!pts.length){
+    g.innerHTML='<div style="color:#9C9A96;padding:20px;font-size:13px;">No patients yet. Click + New Patient to get started.</div>';
+    return;
+  }
+  g.innerHTML = pts.map(p=>`
+    <div class="patient-card ${p.alerts?'alert-card':''}" onclick="showPatientDetail('${p.id}')">
+      <div style="font-size:20px;margin-bottom:6px;">${p.species==='Feline'?'🐈':'🐕'}</div>
+      <div class="pt-name">${p.name}</div>
+      <div class="pt-species">${p.species||''} ${p.breed?'· '+p.breed:''} · ${p.sex||''}</div>
+      <div class="pt-owner">${p.ownerName||''}</div>
+      ${p.alerts?`<div class="pt-alert">⚠ ${p.alerts.split('—')[0]}</div>`:''}
+      <div style="margin-top:8px;display:flex;gap:4px;flex-wrap:wrap;">
+        <span class="badge badge-teal" style="font-size:10px;">${p.zip||'DE'}</span>
+      </div>
+    </div>`).join('');
 }
 
 function filterPatients(v){
   const q=v.toLowerCase();
-  renderPatients(STATE.patients.filter(p=>p.name.toLowerCase().includes(q)||(p.ownerName&&p.ownerName.toLowerCase().includes(q))));
+  renderPatients(S.patients.filter(p=>p.name.toLowerCase().includes(q)||(p.ownerName&&p.ownerName.toLowerCase().includes(q))));
 }
 
-function openPatientSOAP(id){
-  showPanel('soap',document.querySelectorAll('.nav-item')[1]);
-  document.getElementById('soap-patient-select').value=id;
-  loadPatientSOAP();
+function backToPatients(){
+  document.getElementById('patient-list-view').style.display='block';
+  document.getElementById('patient-detail').style.display='none';
+}
+
+function showPatientDetail(id){
+  currentPatientId = id;
+  const p = S.patients.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('patient-list-view').style.display='none';
+  document.getElementById('patient-detail').style.display='block';
+
+  document.getElementById('detail-emoji').textContent = p.species==='Feline'?'🐈':'🐕';
+  document.getElementById('detail-name').textContent = p.name;
+  document.getElementById('detail-species-line').textContent = `${p.species||''} ${p.breed?'· '+p.breed:''} ${p.color?'· '+p.color:''}`;
+  document.getElementById('detail-dob').textContent = p.dob||'—';
+  document.getElementById('detail-sex').textContent = p.sex||'—';
+  document.getElementById('detail-wt').textContent = p.weight?(p.weight+' lbs'):'—';
+  document.getElementById('detail-chip').textContent = p.microchip||'Not microchipped';
+  document.getElementById('detail-owner').textContent = p.ownerName||'—';
+  document.getElementById('detail-phone').textContent = p.ownerPhone||'—';
+  document.getElementById('detail-email').textContent = p.ownerEmail||'—';
+  document.getElementById('detail-address').textContent = p.ownerAddress||'—';
+
+  const alertWrap = document.getElementById('detail-alert-wrap');
+  if(p.alerts){
+    alertWrap.style.display='block';
+    document.getElementById('detail-alert').textContent = '⚠ '+p.alerts;
+  } else { alertWrap.style.display='none'; }
+
+  document.getElementById('detail-call-btn').onclick = ()=>alert('Calling '+p.ownerName+' at '+p.ownerPhone);
+  document.getElementById('detail-sms-btn').onclick = ()=>alert('Opening SMS to '+p.ownerName);
+
+  // Vaccines
+  const vaxes = S.vaccines.filter(v=>v.ptId===id);
+  const TODAY = new Date();
+  document.getElementById('detail-vax-list').innerHTML = vaxes.length ?
+    vaxes.map(v=>{
+      const d = Math.round((new Date(v.due)-TODAY)/(1000*60*60*24));
+      const sc = d<0?'badge-red':d<=30?'badge-amber':d<=90?'badge-blue':'badge-teal';
+      const lbl = d<0?Math.abs(d)+'d overdue':d===0?'Today':d+'d';
+      return `<div class="field-row"><span class="field-label">${v.vax}</span><span class="badge ${sc}">${lbl}</span></div>`;
+    }).join('') :
+    '<div style="font-size:12px;color:#9C9A96;">No vaccines on file.</div>';
+
+  // Medications
+  const meds = S.meds.filter(m=>m.ptId===id);
+  document.getElementById('detail-meds').innerHTML = meds.length ?
+    meds.map(m=>`<div style="background:#F5F5F0;border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px;">
+      <div style="font-weight:600;">${m.drug}</div>
+      <div style="color:#6B6966;font-size:12px;margin-top:2px;">${m.dose} ${m.route} ${m.freq} × ${m.dur}</div>
+      ${m.notes?`<div style="color:#9C9A96;font-size:11px;margin-top:2px;">${m.notes}</div>`:''}
+    </div>`).join('') :
+    '<div style="font-size:13px;color:#9C9A96;">No current medications.</div>';
+
+  // Visit history
+  const visits = S.soap.filter(n=>n.patientId===id).sort((a,b)=>new Date(b.date)-new Date(a.date));
+  document.getElementById('detail-visits').innerHTML = visits.length ?
+    visits.map(v=>`<div class="visit-item" onclick="loadNoteInSOAP('${v.id}')">
+      <div><div style="font-weight:500;">${v.reason||'Visit'}</div><div style="font-size:12px;color:#9C9A96;">${v.date}</div></div>
+      <span class="badge badge-teal">View note →</span>
+    </div>`).join('') :
+    '<div style="font-size:13px;color:#9C9A96;">No visits recorded yet.</div>';
+}
+
+function loadNoteInSOAP(noteId){
+  const note = S.soap.find(n=>n.id===noteId);
+  if(!note) return;
+  showPanel('soap', document.querySelectorAll('.nav-item')[1]);
+  setTimeout(()=>{
+    document.getElementById('soap-pt-select').value = note.patientId;
+    document.getElementById('soap-s').value = note.s||'';
+    document.getElementById('soap-o').value = note.o||'';
+    document.getElementById('soap-a').value = note.a||'';
+    document.getElementById('soap-p').value = note.p||'';
+    document.getElementById('v-temp').value = note.temp||'';
+    document.getElementById('v-hr').value = note.hr||'';
+    document.getElementById('v-rr').value = note.rr||'';
+    document.getElementById('v-wt').value = note.wt||'';
+    document.getElementById('v-bcs').value = note.bcs||'';
+    document.getElementById('v-spo2').value = note.spo2||'';
+    loadPatientSOAP();
+  },50);
+}
+
+function openNewVisitForCurrent(){
+  openModal('newVisit');
+  setTimeout(()=>{
+    const sel = document.getElementById('nv-patient');
+    if(sel && currentPatientId) sel.value = currentPatientId;
+  },50);
+}
+
+// ============================================================
+// SOAP
+// ============================================================
+function updateSelects(){
+  const opts = '<option value="">Select patient...</option>'+S.patients.map(p=>`<option value="${p.id}">${p.name} (${p.ownerName||''})</option>`).join('');
+  const s = document.getElementById('soap-pt-select');
+  if(s) s.innerHTML = opts;
 }
 
 function loadPatientSOAP(){
-  const id=document.getElementById('soap-patient-select').value;
-  const notes=STATE.soapNotes.filter(n=>n.patientId===id).sort((a,b)=>new Date(b.date)-new Date(a.date));
-  const hist=document.getElementById('soap-history');
+  const id = document.getElementById('soap-pt-select').value;
+  const notes = S.soap.filter(n=>n.patientId===id).sort((a,b)=>new Date(b.date)-new Date(a.date));
+  const h = document.getElementById('soap-visit-history');
   if(notes.length){
-    hist.innerHTML='<div style="font-size:12px;font-weight:500;color:#6B6966;margin-bottom:8px;">Previous visits</div>'+
-    notes.map(n=>`<div style="background:#F5F5F0;border-radius:8px;padding:10px;margin-bottom:6px;font-size:12px;cursor:pointer;" onclick="loadNote('${n.id}')">
-      <div style="font-weight:500;">${n.reason||'Visit'} — ${n.date}</div>
-      <div style="color:#6B6966;margin-top:2px;">${(n.s||'').substring(0,80)}...</div>
-    </div>`).join('');
-  } else {
-    hist.innerHTML='';
-  }
+    h.innerHTML = '<div style="font-size:12px;font-weight:600;color:#9C9A96;margin-bottom:8px;margin-top:14px;">PREVIOUS VISITS</div>'+
+      notes.map(n=>`<div class="visit-item" onclick="loadNoteFields('${n.id}')">
+        <div><div style="font-weight:500;">${n.reason||'Visit'}</div><div style="font-size:12px;color:#9C9A96;">${n.date}</div></div>
+        <span class="badge badge-blue">Load</span>
+      </div>`).join('');
+  } else { h.innerHTML=''; }
 }
 
-function loadNote(id){
-  const n=STATE.soapNotes.find(x=>x.id===id);
-  if(!n)return;
+function loadNoteFields(id){
+  const n = S.soap.find(x=>x.id===id);
+  if(!n) return;
   document.getElementById('soap-s').value=n.s||'';
   document.getElementById('soap-o').value=n.o||'';
   document.getElementById('soap-a').value=n.a||'';
@@ -417,13 +743,15 @@ function loadNote(id){
   document.getElementById('v-rr').value=n.rr||'';
   document.getElementById('v-wt').value=n.wt||'';
   document.getElementById('v-bcs').value=n.bcs||'';
+  document.getElementById('v-spo2').value=n.spo2||'';
 }
 
 function saveSOAP(){
-  const ptId=document.getElementById('soap-patient-select').value;
-  if(!ptId){alert('Please select a patient first.');return;}
-  const note={
-    id:'note-'+Date.now(),patientId:ptId,date:new Date().toLocaleDateString(),
+  const ptId = document.getElementById('soap-pt-select').value;
+  if(!ptId){ alert('Please select a patient first.'); return; }
+  const note = {
+    id:'note-'+Date.now(), patientId:ptId,
+    date:new Date().toLocaleDateString(), reason:'Visit '+new Date().toLocaleDateString(),
     s:document.getElementById('soap-s').value,
     o:document.getElementById('soap-o').value,
     a:document.getElementById('soap-a').value,
@@ -433,99 +761,153 @@ function saveSOAP(){
     rr:document.getElementById('v-rr').value,
     wt:document.getElementById('v-wt').value,
     bcs:document.getElementById('v-bcs').value,
+    spo2:document.getElementById('v-spo2').value,
   };
-  STATE.soapNotes.push(note);save('soap');
+  S.soap.push(note); save('soap');
   alert('SOAP note saved!');
   loadPatientSOAP();
 }
 
+// ============================================================
+// INVOICES
+// ============================================================
 function renderInvoices(){
-  const open=STATE.invoices.filter(i=>i.status==='open');
-  const paid=STATE.invoices.filter(i=>i.status==='paid');
-  document.getElementById('inv-open-body').innerHTML=open.length?open.map(i=>`<tr><td>${i.id}</td><td>${i.patient}</td><td>${i.client}</td><td>${i.date}</td><td style="font-weight:500;">$${i.total}</td><td><span class="badge badge-amber">Open</span></td><td><button class="btn btn-sm" onclick="markPaid('${i.id}')">Mark Paid</button></td></tr>`).join(''):'<tr><td colspan="7" style="text-align:center;color:#6B6966;padding:20px;">No open invoices</td></tr>';
-  document.getElementById('inv-paid-body').innerHTML=paid.length?paid.map(i=>`<tr><td>${i.id}</td><td>${i.patient}</td><td>${i.client}</td><td>${i.date}</td><td style="font-weight:500;">$${i.total}</td><td><span class="badge badge-teal">${i.payMethod||'Paid'}</span></td></tr>`).join(''):'<tr><td colspan="6" style="text-align:center;color:#6B6966;padding:20px;">No paid invoices</td></tr>';
-  const sel=document.getElementById('pay-invoice');
-  if(sel)sel.innerHTML=open.map(i=>`<option value="${i.id}">${i.id} — ${i.patient} ($${i.total})</option>`).join('');
+  const open = S.invoices.filter(i=>i.status==='open');
+  const paid = S.invoices.filter(i=>i.status==='paid');
+  document.getElementById('inv-open-body').innerHTML = open.length ?
+    open.map(i=>`<tr><td>${i.id}</td><td>${i.patient}</td><td>${i.client}</td><td>${i.date}</td><td style="font-weight:600;">$${parseFloat(i.total||0).toFixed(2)}</td><td><span class="badge badge-amber">Open</span></td><td><button class="btn btn-sm" onclick="markInvoicePaid('${i.id}')">Mark Paid</button></td></tr>`).join('') :
+    '<tr><td colspan="7" style="text-align:center;color:#9C9A96;padding:20px;">No open invoices</td></tr>';
+  document.getElementById('inv-paid-body').innerHTML = paid.length ?
+    paid.map(i=>`<tr><td>${i.id}</td><td>${i.patient}</td><td>${i.client}</td><td>${i.date}</td><td style="font-weight:600;">$${parseFloat(i.total||0).toFixed(2)}</td><td><span class="badge badge-teal">${i.payMethod||'Paid'}</span></td></tr>`).join('') :
+    '<tr><td colspan="6" style="text-align:center;color:#9C9A96;padding:20px;">No paid invoices</td></tr>';
 }
 
 function addInvLine(){
-  const tbody=document.getElementById('inv-lines');
-  const id='ln-'+Date.now();
-  const tr=document.createElement('tr');tr.id=id;
-  tr.innerHTML=`<td><input type="text" style="width:100%;border:none;font-size:13px;font-family:inherit;" placeholder="Description"></td><td><input type="number" value="1" style="width:50px;border:none;font-size:13px;" oninput="calcInv()"></td><td><input type="number" placeholder="0.00" style="width:70px;border:none;font-size:13px;" oninput="calcInv()"></td><td id="lt-${id}">$0.00</td><td><button class="btn btn-sm" onclick="document.getElementById('${id}').remove();calcInv()">✕</button></td>`;
-  tbody.appendChild(tr);
+  const id = 'ln-'+Date.now();
+  const tr = document.createElement('tr'); tr.id=id;
+  tr.innerHTML = `<td><input class="inv-line-input" type="text" placeholder="Description"></td><td><input type="number" value="1" min="1" style="width:45px;border:none;font-size:13px;font-family:inherit;" oninput="calcInv()"></td><td><input type="number" placeholder="0.00" style="width:70px;border:none;font-size:13px;font-family:inherit;" oninput="calcInv()"></td><td id="lt-${id}">$0.00</td><td><button class="btn btn-sm btn-danger" onclick="document.getElementById('${id}').remove();calcInv()">✕</button></td>`;
+  document.getElementById('inv-lines').appendChild(tr);
 }
 
 function calcInv(){
   let sub=0;
   document.querySelectorAll('#inv-lines tr').forEach(r=>{
-    const inputs=r.querySelectorAll('input[type=number]');
-    if(inputs.length>=2){const t=(parseFloat(inputs[0].value)||0)*(parseFloat(inputs[1].value)||0);sub+=t;}
+    const nums = r.querySelectorAll('input[type=number]');
+    if(nums.length>=2){ const t=(parseFloat(nums[0].value)||0)*(parseFloat(nums[1].value)||0); sub+=t; r.querySelector('[id^=lt-]').textContent='$'+t.toFixed(2); }
   });
-  document.getElementById('inv-subtotal').textContent='$'+sub.toFixed(2);
+  document.getElementById('inv-sub').textContent='$'+sub.toFixed(2);
   document.getElementById('inv-total').textContent='$'+sub.toFixed(2);
 }
 
 function finalizeInvoice(){
-  const ptId=document.getElementById('inv-patient-select').value;
-  const pt=STATE.patients.find(p=>p.id===ptId)||{name:'Unknown',ownerName:'Unknown'};
+  const ptId=document.getElementById('inv-pt-sel').value;
+  const pt=S.patients.find(p=>p.id===ptId)||{name:'Unknown',ownerName:'Unknown'};
   let total=0;
   document.querySelectorAll('#inv-lines tr').forEach(r=>{
-    const inputs=r.querySelectorAll('input[type=number]');
-    if(inputs.length>=2)total+=(parseFloat(inputs[0].value)||0)*(parseFloat(inputs[1].value)||0);
+    const nums=r.querySelectorAll('input[type=number]');
+    if(nums.length>=2) total+=(parseFloat(nums[0].value)||0)*(parseFloat(nums[1].value)||0);
   });
-  const inv={id:'INV-'+String(STATE.invoices.length+1).padStart(4,'0'),patient:pt.name,client:pt.ownerName,date:new Date().toLocaleDateString(),total:total.toFixed(2),status:'open'};
-  STATE.invoices.push(inv);save('invoices');
+  const inv={id:'INV-'+String(S.invoices.length+1).padStart(4,'0'),patient:pt.name,client:pt.ownerName,date:new Date().toLocaleDateString(),total:total.toFixed(2),status:'open'};
+  S.invoices.push(inv); save('invoices');
   alert('Invoice '+inv.id+' created for $'+inv.total);
   renderInvoices();
 }
 
-function markPaid(id){
-  const inv=STATE.invoices.find(i=>i.id===id);
+function markInvoicePaid(id){
+  const inv=S.invoices.find(i=>i.id===id);
   if(inv){inv.status='paid';inv.payMethod='Card';save('invoices');renderInvoices();}
 }
 
+function renderPaymentPanel(){
+  const open=S.invoices.filter(i=>i.status==='open');
+  const sel=document.getElementById('pay-inv-sel');
+  if(sel) sel.innerHTML=open.length?open.map(i=>`<option value="${i.id}">${i.id} — ${i.patient} ($${i.total})</option>`).join(''):'<option>No open invoices</option>';
+}
+
+function selectPayMethod(el,method){
+  document.querySelectorAll('.pay-method-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('pay-method-val').value=method;
+  selectedPayMethod=method;
+}
+
 function processPayment(){
-  const invId=document.getElementById('pay-invoice').value;
-  const amount=document.getElementById('pay-amount').value;
-  const method=document.getElementById('pay-method').value;
-  const inv=STATE.invoices.find(i=>i.id===invId);
+  const invId=document.getElementById('pay-inv-sel').value;
+  const amount=document.getElementById('pay-amt').value;
+  const method=selectedPayMethod||'Other';
+  const notes=document.getElementById('pay-notes').value;
+  if(!amount){alert('Please enter an amount.');return;}
+  const inv=S.invoices.find(i=>i.id===invId);
   if(inv){
     inv.status='paid';inv.payMethod=method;
-    STATE.payments.push({id:'PAY-'+Date.now(),invoiceId:invId,amount,method,date:new Date().toLocaleDateString()});
+    S.payments.push({id:'PAY-'+Date.now(),invoiceId:invId,patient:inv.patient,amount,method,notes,date:new Date().toLocaleDateString()});
     save('invoices');save('payments');
-    alert('Payment of $'+amount+' recorded via '+method);
-    renderInvoices();renderFinancial();
+    alert('Payment of $'+amount+' via '+method+' recorded!');
+    renderPaymentPanel();renderFinancial();
   }
 }
 
+// ============================================================
+// FINANCIAL
+// ============================================================
+function renderFinancial(){
+  const now=new Date();
+  const monthPay=S.payments.filter(p=>{const d=new Date(p.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
+  const monthTotal=monthPay.reduce((s,p)=>s+parseFloat(p.amount||0),0);
+  const allTotal=S.payments.reduce((s,p)=>s+parseFloat(p.amount||0),0);
+  const outstanding=S.invoices.filter(i=>i.status==='open').reduce((s,i)=>s+parseFloat(i.total||0),0);
+  document.getElementById('fin-month').textContent='$'+monthTotal.toFixed(2);
+  document.getElementById('fin-owed').textContent='$'+outstanding.toFixed(2);
+  document.getElementById('fin-collected').textContent='$'+allTotal.toFixed(2);
+  document.getElementById('fin-pts').textContent=S.patients.length;
+  const methods={};
+  S.payments.forEach(p=>{if(!methods[p.method])methods[p.method]={count:0,total:0};methods[p.method].count++;methods[p.method].total+=parseFloat(p.amount||0);});
+  document.getElementById('fin-methods').innerHTML=Object.keys(methods).length?Object.entries(methods).map(([m,v])=>`<tr><td>${m}</td><td>${v.count}</td><td style="font-weight:600;">$${v.total.toFixed(2)}</td></tr>`).join(''):'<tr><td colspan="3" style="color:#9C9A96;padding:16px;text-align:center;">No payments yet</td></tr>';
+  const recent=[...S.payments].reverse().slice(0,10);
+  document.getElementById('fin-recent').innerHTML=recent.length?recent.map(p=>`<tr><td>${p.date}</td><td>${p.patient||'—'}</td><td style="font-weight:600;">$${parseFloat(p.amount).toFixed(2)}</td><td><span class="badge badge-teal">${p.method}</span></td></tr>`).join(''):'<tr><td colspan="4" style="color:#9C9A96;padding:16px;text-align:center;">No payments yet</td></tr>';
+}
+
+// ============================================================
+// INVENTORY
+// ============================================================
 function renderInventory(list){
-  const items=list||STATE.inventory;
+  let items=list||S.inventory;
+  if(invCatFilter==='low') items=items.filter(i=>i.onHand<=i.reorder);
+  if(invCatFilter==='controlled') items=items.filter(i=>i.schedule&&i.schedule!=='-');
+  if(invCatFilter==='rx') items=items.filter(i=>i.isRx);
   document.getElementById('inv-body').innerHTML=items.length?items.map(i=>{
-    const low=i.onHand<=i.reorder;
-    return `<tr><td style="font-weight:500;">${i.name}</td><td>${i.category||''}</td><td class="${low?'':''}"><span style="color:${low?'#E24B4A':'#1D9E75'}">${i.onHand} ${low?'⚠':''}</span></td><td>${i.reorder}</td><td>${i.schedule!=='-'?`<span class="badge badge-red">Sched ${i.schedule}</span>`:'—'}</td><td>${i.exp||'—'}</td><td><span class="badge ${low?'badge-red':'badge-teal'}">${low?'Low Stock':'OK'}</span></td></tr>`;
-  }).join(''):'<tr><td colspan="7" style="text-align:center;color:#6B6966;padding:20px;">No inventory items. Click + Add Item to get started.</td></tr>';
+    const low=parseInt(i.onHand)<=parseInt(i.reorder);
+    return `<tr><td style="font-weight:600;">${i.name}</td><td>${i.category||'—'}</td><td style="color:${low?'#E24B4A':'#1D9E75'};font-weight:500;">${i.onHand} ${low?'⚠':''}</td><td>${i.reorder}</td><td>${i.schedule&&i.schedule!=='-'?`<span class="badge badge-red">Sched ${i.schedule}</span>`:'—'}</td><td>${i.exp||'—'}</td><td><span class="badge ${low?'badge-red':'badge-teal'}">${low?'Low Stock':'OK'}</span></td></tr>`;
+  }).join(''):'<tr><td colspan="7" style="text-align:center;color:#9C9A96;padding:20px;">No inventory items yet. Click + Add Item.</td></tr>';
 }
 
-function filterInventory(v){
-  const q=v.toLowerCase();
-  renderInventory(STATE.inventory.filter(i=>i.name.toLowerCase().includes(q)));
-}
+function filterInventory(v){const q=v.toLowerCase();renderInventory(S.inventory.filter(i=>i.name.toLowerCase().includes(q)));}
+function filterInvCat(f,el){invCatFilter=f;document.querySelectorAll('#panel-inventory .tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderInventory();}
 
+// ============================================================
+// DEA LOG
+// ============================================================
 function renderDEA(){
-  document.getElementById('dea-body').innerHTML=STATE.deaLog.length?STATE.deaLog.map(e=>`<tr><td style="font-size:12px;">${e.dt}</td><td style="font-weight:500;">${e.drug}</td><td><span class="badge badge-red">Sched ${e.sched}</span></td><td>${e.amt} ${e.unit}</td><td><span class="badge ${e.type==='Dispensed'?'badge-blue':e.type==='Wasted'?'badge-red':'badge-teal'}">${e.type}</span></td><td>${e.patient}</td><td style="font-size:11px;">${e.lot}</td><td style="font-weight:500;">${e.balance} ${e.unit}</td><td>${e.initials}</td></tr>`).join(''):'<tr><td colspan="9" style="text-align:center;color:#6B6966;padding:20px;">No DEA log entries yet.</td></tr>';
+  let list=S.dea;
+  if(deaFilter!=='all') list=list.filter(e=>e.type===deaFilter);
+  document.getElementById('dea-body').innerHTML=list.length?list.map(e=>`<tr><td style="font-size:12px;white-space:nowrap;">${e.dt}</td><td style="font-weight:600;">${e.drug}</td><td><span class="badge badge-red">Sched ${e.sched}</span></td><td>${e.amt} ${e.unit}</td><td><span class="badge ${e.type==='Dispensed'?'badge-blue':e.type==='Wasted'?'badge-red':'badge-teal'}">${e.type}</span></td><td>${e.patient}</td><td style="font-size:11px;">${e.lot}</td><td style="font-weight:600;">${e.balance} ${e.unit}</td><td style="font-weight:600;">${e.initials}</td></tr>`).join(''):'<tr><td colspan="9" style="text-align:center;color:#9C9A96;padding:20px;">No DEA log entries yet.</td></tr>';
 }
 
-function renderVaccines(filter){
+function filterDEA(f,el){deaFilter=f;document.querySelectorAll('#panel-dea .tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderDEA();}
+
+function exportDEA(){
+  const rows=[['Date/Time','Drug','Schedule','Amount','Unit','Type','Patient','Lot #','Balance','Initials'],...S.dea.map(e=>[e.dt,e.drug,e.sched,e.amt,e.unit,e.type,e.patient,e.lot,e.balance,e.initials])];
+  const csv=rows.map(r=>r.join(',')).join('\n');
+  const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);a.download='DEA_Log_FureverCompanions.csv';a.click();
+}
+
+// ============================================================
+// VACCINES
+// ============================================================
+function renderVaccines(){
   const TODAY=new Date();
-  let list=STATE.vaccines;
-  const byPt={};
-  list.forEach(v=>{
-    if(!byPt[v.ptId])byPt[v.ptId]={};
-    byPt[v.ptId][v.vax]=v;
-  });
   let overdue=0,soon=0,upcoming=0,current=0;
-  STATE.vaccines.forEach(v=>{
+  S.vaccines.forEach(v=>{
     const d=Math.round((new Date(v.due)-TODAY)/(1000*60*60*24));
     if(d<0)overdue++;else if(d<=30)soon++;else if(d<=90)upcoming++;else current++;
   });
@@ -533,249 +915,317 @@ function renderVaccines(filter){
   document.getElementById('vax-soon').textContent=soon;
   document.getElementById('vax-upcoming').textContent=upcoming;
   document.getElementById('vax-current').textContent=current;
-  const ptIds=Object.keys(byPt);
-  const vl=document.getElementById('vaccine-list');
-  if(!ptIds.length){vl.innerHTML='<div style="color:#6B6966;padding:20px;">No vaccine records yet.</div>';return;}
-  vl.innerHTML=ptIds.map(ptId=>{
-    const pt=STATE.patients.find(p=>p.id===ptId)||{name:'Unknown'};
-    const vaxes=Object.values(byPt[ptId]);
+
+  const byPt={};
+  S.vaccines.forEach(v=>{if(!byPt[v.ptId])byPt[v.ptId]=[];byPt[v.ptId].push(v);});
+
+  let ptIds=Object.keys(byPt);
+  if(vaxSearch) ptIds=ptIds.filter(id=>{const p=S.patients.find(x=>x.id===id);return p&&p.name.toLowerCase().includes(vaxSearch);});
+  if(vaxStatusFilter!=='all') ptIds=ptIds.filter(id=>{
+    const vaxes=byPt[id];
     const hasOverdue=vaxes.some(v=>new Date(v.due)<TODAY);
     const hasSoon=vaxes.some(v=>{const d=Math.round((new Date(v.due)-TODAY)/(1000*60*60*24));return d>=0&&d<=30;});
-    return `<div style="background:#fff;border:0.5px solid ${hasOverdue?'#E24B4A':hasSoon?'#BA7517':'#E5E3DC'};border-radius:12px;margin-bottom:10px;overflow:hidden;">
-      <div style="padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
-        <div><div style="font-weight:500;">${pt.name}</div><div style="font-size:12px;color:#6B6966;">${pt.species||''} · ${pt.ownerName||''}</div></div>
-        <div style="display:flex;gap:6px;">
+    if(vaxStatusFilter==='overdue') return hasOverdue;
+    if(vaxStatusFilter==='soon') return hasSoon&&!hasOverdue;
+    if(vaxStatusFilter==='current') return !hasOverdue&&!hasSoon;
+    return true;
+  });
+
+  const vl=document.getElementById('vax-list');
+  if(!ptIds.length){vl.innerHTML='<div style="color:#9C9A96;padding:20px;">No vaccine records found.</div>';return;}
+  vl.innerHTML=ptIds.map(ptId=>{
+    const pt=S.patients.find(p=>p.id===ptId)||{name:'Unknown',species:'Canine'};
+    const vaxes=byPt[ptId];
+    const hasOverdue=vaxes.some(v=>new Date(v.due)<TODAY);
+    const hasSoon=vaxes.some(v=>{const d=Math.round((new Date(v.due)-TODAY)/(1000*60*60*24));return d>=0&&d<=30;});
+    return `<div class="vax-patient-block ${hasOverdue?'overdue':hasSoon?'due-soon':''}">
+      <div class="vax-patient-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="font-size:24px;">${pt.species==='Feline'?'🐈':'🐕'}</div>
+          <div><div style="font-weight:600;">${pt.name}</div><div style="font-size:12px;color:#6B6966;">${pt.species||''} · ${pt.ownerName||''}</div></div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
           ${hasOverdue?'<span class="badge badge-red">Overdue</span>':''}
-          ${hasSoon?'<span class="badge badge-amber">Due Soon</span>':''}
+          ${hasSoon&&!hasOverdue?'<span class="badge badge-amber">Due Soon</span>':''}
           ${!hasOverdue&&!hasSoon?'<span class="badge badge-teal">Current</span>':''}
           <button class="btn btn-sm" onclick="openModal('logVax','${ptId}')">+ Log</button>
+          <button class="btn btn-sm" onclick="sendVaxReminder('${ptId}')">Send Reminder</button>
         </div>
       </div>
-      <table style="border-top:0.5px solid #E5E3DC;"><thead><tr><th>Vaccine</th><th>Last Given</th><th>Due Date</th><th>Status</th></tr></thead><tbody>
-      ${vaxes.map(v=>{
-        const d=Math.round((new Date(v.due)-TODAY)/(1000*60*60*24));
-        const sc=d<0?'badge-red':d<=30?'badge-amber':d<=90?'badge-blue':'badge-teal';
-        const lbl=d<0?Math.abs(d)+'d overdue':d===0?'Today':d+'d';
-        return `<tr><td style="font-weight:500;">${v.vax}</td><td>${v.given}</td><td>${v.due}</td><td><span class="badge ${sc}">${lbl}</span></td></tr>`;
-      }).join('')}
-      </tbody></table>
+      <table class="data-table" style="border-top:0.5px solid #F5F5F0;">
+        <thead><tr><th>Vaccine</th><th>Last Given</th><th>Due Date</th><th>Status</th><th>Lot #</th></tr></thead>
+        <tbody>${vaxes.map(v=>{
+          const d=Math.round((new Date(v.due)-TODAY)/(1000*60*60*24));
+          const sc=d<0?'badge-red':d<=30?'badge-amber':d<=90?'badge-blue':'badge-teal';
+          const lbl=d<0?Math.abs(d)+'d overdue':d===0?'Due today':d+'d';
+          return `<tr><td style="font-weight:600;">${v.vax}</td><td>${v.given}</td><td>${v.due}</td><td><span class="badge ${sc}">${lbl}</span></td><td style="font-size:11px;color:#9C9A96;">${v.lot||'—'}</td></tr>`;
+        }).join('')}</tbody>
+      </table>
     </div>`;
   }).join('');
 }
 
-function filterVaccines(v){renderVaccines();}
+function filterVax(v){vaxSearch=v.toLowerCase();renderVaccines();}
+function filterVaxStatus(f,el){vaxStatusFilter=f;document.querySelectorAll('#panel-vaccines .tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderVaccines();}
+function sendVaxReminder(ptId){const p=S.patients.find(x=>x.id===ptId);alert('Vaccine reminder drafted for '+p.ownerName+' re: '+p.name+'.\n\nIn the live version, this sends via Twilio to '+p.ownerPhone);}
 
-function renderFinancial(){
-  const now=new Date();
-  const monthPaid=STATE.payments.filter(p=>{const d=new Date(p.date);return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear();});
-  const monthTotal=monthPaid.reduce((s,p)=>s+parseFloat(p.amount||0),0);
-  const outstanding=STATE.invoices.filter(i=>i.status==='open').reduce((s,i)=>s+parseFloat(i.total||0),0);
-  document.getElementById('fin-month').textContent='$'+monthTotal.toFixed(2);
-  document.getElementById('fin-outstanding').textContent='$'+outstanding.toFixed(2);
-  document.getElementById('fin-paid').textContent='$'+monthTotal.toFixed(2);
-  document.getElementById('fin-patients').textContent=STATE.patients.length;
-  const methods={};
-  STATE.payments.forEach(p=>{if(!methods[p.method])methods[p.method]={count:0,total:0};methods[p.method].count++;methods[p.method].total+=parseFloat(p.amount||0);});
-  const breakdown=document.getElementById('fin-breakdown');
-  breakdown.innerHTML=Object.keys(methods).length?Object.entries(methods).map(([m,v])=>`<tr><td>${m}</td><td>${v.count}</td><td style="font-weight:500;">$${v.total.toFixed(2)}</td></tr>`).join(''):'<tr><td colspan="3" style="text-align:center;color:#6B6966;padding:20px;">No payments recorded yet</td></tr>';
-}
-
+// ============================================================
+// COMMS
+// ============================================================
 function renderComms(){
-  const cl=document.getElementById('comms-client-list');
-  cl.innerHTML=STATE.patients.map(p=>`<div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:0.5px solid #E5E3DC;">
-    <div style="width:38px;height:38px;border-radius:50%;background:#E1F5EE;color:#085041;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;flex-shrink:0;">${(p.ownerName||'?').split(' ').map(n=>n[0]).join('').substring(0,2)}</div>
-    <div style="flex:1;"><div style="font-weight:500;font-size:13px;">${p.ownerName||'Unknown'}</div><div style="font-size:11px;color:#6B6966;">${p.name} · ${p.ownerPhone||'No phone'}</div></div>
-    <div style="display:flex;gap:6px;">
-      <button class="btn btn-sm" style="background:#1D9E75;color:#fff;border-color:#1D9E75;" onclick="callClient('${p.ownerName}','${p.ownerPhone||''}')">📞</button>
-      <button class="btn btn-sm" style="background:#E6F1FB;color:#0C447C;border-color:#85B7EB;" onclick="smsClient('${p.id}','${p.ownerName}')">💬</button>
-    </div>
-  </div>`).join('')||'<div style="color:#6B6966;padding:20px;">No clients yet.</div>';
+  document.getElementById('comms-client-list').innerHTML=S.patients.map(p=>{
+    const initials=(p.ownerName||'?').split(' ').map(n=>n[0]).join('').substring(0,2);
+    const colors=['av-teal','av-blue','av-purple','av-amber'];
+    const c=colors[S.patients.indexOf(p)%colors.length];
+    return `<div class="client-row">
+      <div class="avatar ${c}">${initials}</div>
+      <div style="flex:1;">
+        <div style="font-weight:600;font-size:13px;">${p.ownerName||'—'}</div>
+        <div style="font-size:11px;color:#6B6966;">${p.name} · ${p.ownerPhone||'No phone'}</div>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="call-btn" onclick="alert('Calling ${p.ownerName} at ${p.ownerPhone}')">📞</button>
+        <button class="sms-btn" onclick="alert('SMS to ${p.ownerName} via Twilio 302-356-1199')">💬</button>
+      </div>
+    </div>`;
+  }).join('')||'<div style="color:#9C9A96;padding:20px;">No clients yet.</div>';
 }
 
-function callClient(name,phone){alert('Calling '+name+' at '+phone+'\n\nIn the live version, this will dial through your Twilio number 302-356-1199');}
-function smsClient(id,name){alert('Opening SMS to '+name+'\n\nIn the live version, this will open an SMS thread through Twilio.');}
+function copyTemplate(el){
+  const text=el.textContent.replace(/^(OVERDUE|DUE SOON|RABIES 1-YEAR BOOSTER|CONFIRMATION|24-HOUR REMINDER|FOLLOW-UP|LAB RESULTS)/,'').trim();
+  navigator.clipboard.writeText(text).then(()=>{el.style.background='#E1F5EE';setTimeout(()=>el.style.background='',1000);});
+}
 
+// ============================================================
+// TAB SWITCHER
+// ============================================================
 function switchTab(group,name,el){
   if(group==='inv'){
     ['open','paid','new'].forEach(t=>document.getElementById('inv-'+t).style.display=t===name?'block':'none');
     if(name==='new'){
-      const sel=document.getElementById('inv-patient-select');
-      sel.innerHTML=STATE.patients.map(p=>`<option value="${p.id}">${p.name} (${p.ownerName||''})</option>`).join('');
+      const sel=document.getElementById('inv-pt-sel');
+      sel.innerHTML=S.patients.map(p=>`<option value="${p.id}">${p.name} (${p.ownerName||''})</option>`).join('');
       document.getElementById('inv-date').value=new Date().toISOString().split('T')[0];
     }
   }
-  if(group==='dea'){renderDEA();}
   if(group==='comms'){
     ['clients','log','sms','templates'].forEach(t=>document.getElementById('comms-'+t).style.display=t===name?'block':'none');
   }
   if(el){el.closest('.tabs').querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');}
 }
 
-const MODALS={
-  newPatient:`<div class="modal-title">New Patient</div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Patient Name</label><input class="form-input" id="np-name" type="text" placeholder="e.g. Biscuit"></div>
-      <div class="form-row"><label class="form-label">Species</label><select class="form-input" id="np-species"><option>Canine</option><option>Feline</option><option>Rabbit</option><option>Other</option></select></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Breed</label><input class="form-input" id="np-breed" type="text" placeholder="DSH, Lab Mix..."></div>
-      <div class="form-row"><label class="form-label">Date of Birth</label><input class="form-input" id="np-dob" type="date"></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Sex</label><select class="form-input" id="np-sex"><option>FS</option><option>MN</option><option>Female Intact</option><option>Male Intact</option></select></div>
-      <div class="form-row"><label class="form-label">Weight (lbs)</label><input class="form-input" id="np-weight" type="number" step="0.1"></div>
-    </div>
+// ============================================================
+// MODALS
+// ============================================================
+const MODALS = {
+newPatient:`<div class="modal-title">New Patient</div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Patient Name *</label><input class="form-input" id="np-name" type="text" placeholder="e.g. Biscuit"></div>
+    <div class="form-row"><label class="form-label">Species</label><select class="form-input" id="np-species"><option>Canine</option><option>Feline</option><option>Rabbit</option><option>Other</option></select></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Breed</label><input class="form-input" id="np-breed" type="text" placeholder="DSH, Lab Mix..."></div>
+    <div class="form-row"><label class="form-label">Color</label><input class="form-input" id="np-color" type="text"></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Date of Birth</label><input class="form-input" id="np-dob" type="date"></div>
+    <div class="form-row"><label class="form-label">Sex</label><select class="form-input" id="np-sex"><option>FS</option><option>MN</option><option>Female Intact</option><option>Male Intact</option></select></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Weight (lbs)</label><input class="form-input" id="np-wt" type="number" step="0.1"></div>
     <div class="form-row"><label class="form-label">Microchip #</label><input class="form-input" id="np-chip" type="text" placeholder="15-digit ISO"></div>
-    <div class="form-row"><label class="form-label">Owner Name</label><input class="form-input" id="np-owner" type="text"></div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Phone</label><input class="form-input" id="np-phone" type="text"></div>
-      <div class="form-row"><label class="form-label">Email</label><input class="form-input" id="np-email" type="email"></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Address</label><input class="form-input" id="np-address" type="text"></div>
-      <div class="form-row"><label class="form-label">ZIP Code</label><input class="form-input" id="np-zip" type="text" placeholder="New Castle County"></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveNewPatient()">Save Patient</button>
-    </div>`,
+  </div>
+  <div class="form-row"><label class="form-label">Medical Alerts</label><input class="form-input" id="np-alerts" type="text" placeholder="e.g. DIABETIC, on prednisone, aggressive..."></div>
+  <div style="border-top:0.5px solid #F5F5F0;margin:14px 0;padding-top:14px;font-size:12px;font-weight:600;color:#9C9A96;text-transform:uppercase;">Owner / Client</div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Owner Name *</label><input class="form-input" id="np-owner" type="text"></div>
+    <div class="form-row"><label class="form-label">Phone</label><input class="form-input" id="np-phone" type="text"></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Email</label><input class="form-input" id="np-email" type="email"></div>
+    <div class="form-row"><label class="form-label">ZIP Code</label><input class="form-input" id="np-zip" type="text"></div>
+  </div>
+  <div class="form-row"><label class="form-label">Address</label><input class="form-input" id="np-address" type="text"></div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveNewPatient()">Save Patient</button>
+  </div>`,
 
-  newVisit:`<div class="modal-title">New Visit</div>
-    <div class="form-row"><label class="form-label">Patient</label><select class="form-input" id="nv-patient"></select></div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Visit Date</label><input class="form-input" id="nv-date" type="date"></div>
-      <div class="form-row"><label class="form-label">Visit Type</label><select class="form-input" id="nv-type"><option>Annual Wellness</option><option>Sick/Urgent</option><option>Recheck</option><option>Surgery/Procedure</option><option>Vaccine Only</option></select></div>
-    </div>
-    <div class="form-row"><label class="form-label">Chief Complaint</label><input class="form-input" id="nv-complaint" type="text" placeholder="Brief reason for visit"></div>
-    <div class="modal-footer">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="openNewVisit()">Open SOAP Note</button>
-    </div>`,
+newVisit:`<div class="modal-title">New Visit</div>
+  <div class="form-row"><label class="form-label">Patient</label><select class="form-input" id="nv-patient"></select></div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Visit Date</label><input class="form-input" id="nv-date" type="date"></div>
+    <div class="form-row"><label class="form-label">Visit Type</label><select class="form-input" id="nv-type"><option>Annual Wellness</option><option>Sick/Urgent</option><option>Recheck</option><option>Surgery/Procedure</option><option>Vaccine Only</option><option>Follow-up</option></select></div>
+  </div>
+  <div class="form-row"><label class="form-label">Chief Complaint / Reason</label><input class="form-input" id="nv-reason" type="text" placeholder="Brief reason for visit"></div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="openNewVisitSOAP()">Open SOAP Note</button>
+  </div>`,
 
-  addItem:`<div class="modal-title">Add Inventory Item</div>
-    <div class="form-row"><label class="form-label">Drug / Supply Name</label><input class="form-input" id="ai-name" type="text"></div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Category</label><select class="form-input" id="ai-cat"><option>Anesthetic</option><option>Analgesic</option><option>Antibiotic</option><option>NSAID</option><option>Antiemetic</option><option>Fluid</option><option>Supply</option><option>Vaccine</option></select></div>
-      <div class="form-row"><label class="form-label">DEA Schedule</label><select class="form-input" id="ai-sched"><option>-</option><option>II</option><option>III</option><option>IV</option><option>V</option></select></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Quantity On Hand</label><input class="form-input" id="ai-qty" type="number"></div>
-      <div class="form-row"><label class="form-label">Reorder Level</label><input class="form-input" id="ai-reorder" type="number"></div>
-    </div>
+addItem:`<div class="modal-title">Add Inventory Item</div>
+  <div class="form-row"><label class="form-label">Drug / Supply Name *</label><input class="form-input" id="ai-name" type="text"></div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Category</label><select class="form-input" id="ai-cat"><option>Anesthetic</option><option>Analgesic</option><option>Antibiotic</option><option>NSAID</option><option>Antiemetic</option><option>Vaccine</option><option>Fluid</option><option>Supply</option><option>Other</option></select></div>
+    <div class="form-row"><label class="form-label">DEA Schedule</label><select class="form-input" id="ai-sched"><option>-</option><option>II</option><option>III</option><option>IV</option><option>V</option></select></div>
+  </div>
+  <div class="form-grid3">
+    <div class="form-row"><label class="form-label">Qty On Hand</label><input class="form-input" id="ai-qty" type="number" min="0"></div>
+    <div class="form-row"><label class="form-label">Reorder Level</label><input class="form-input" id="ai-reorder" type="number" min="0"></div>
     <div class="form-row"><label class="form-label">Expiration</label><input class="form-input" id="ai-exp" type="month"></div>
-    <div class="modal-footer">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveItem()">Add Item</button>
-    </div>`,
+  </div>
+  <div class="form-row"><label class="form-label"><input type="checkbox" id="ai-rx"> Rx Only</label></div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveItem()">Add Item</button>
+  </div>`,
 
-  deaEntry:`<div class="modal-title">Log Controlled Substance</div>
-    <div class="form-row"><label class="form-label">Drug</label><select class="form-input" id="de-drug">${(()=>STATE.inventory.filter(i=>i.schedule&&i.schedule!=='-').map(i=>`<option>${i.name} (Sched ${i.schedule})</option>`).join('')||'<option>No controlled substances in inventory</option>')()}</select></div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Type</label><select class="form-input" id="de-type"><option>Dispensed</option><option>Wasted</option><option>Received</option></select></div>
-      <div class="form-row"><label class="form-label">Amount (mL)</label><input class="form-input" id="de-amt" type="number" step="0.1"></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Patient</label><select class="form-input" id="de-patient"><option>-</option>${STATE.patients.map(p=>`<option>${p.name} (${p.ownerName||''})</option>`).join('')}</select></div>
-      <div class="form-row"><label class="form-label">Lot #</label><input class="form-input" id="de-lot" type="text"></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Balance After</label><input class="form-input" id="de-balance" type="number" step="0.1"></div>
-      <div class="form-row"><label class="form-label">Initials</label><input class="form-input" id="de-initials" type="text" placeholder="AH or KN"></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveDEA()">Save Entry</button>
-    </div>`,
+deaEntry:`<div class="modal-title">Log Controlled Substance Entry</div>
+  <div class="form-row"><label class="form-label">Drug</label><select class="form-input" id="de-drug">${S.inventory.filter(i=>i.schedule&&i.schedule!=='-').map(i=>`<option>${i.name} (Sched ${i.schedule})</option>`).join('')||'<option>Add controlled substances to inventory first</option>'}</select></div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Entry Type</label><select class="form-input" id="de-type"><option>Dispensed</option><option>Wasted</option><option>Received</option></select></div>
+    <div class="form-row"><label class="form-label">Amount (mL)</label><input class="form-input" id="de-amt" type="number" step="0.1"></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Patient</label><select class="form-input" id="de-patient"><option>-</option>${S.patients.map(p=>`<option>${p.name} (${p.ownerName||''})</option>`).join('')}</select></div>
+    <div class="form-row"><label class="form-label">Lot #</label><input class="form-input" id="de-lot" type="text"></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Running Balance After (mL)</label><input class="form-input" id="de-balance" type="number" step="0.1"></div>
+    <div class="form-row"><label class="form-label">Initials</label><input class="form-input" id="de-initials" type="text" placeholder="AH or KN" maxlength="4"></div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveDEA()">Save Entry</button>
+  </div>`,
 
-  logVax:`<div class="modal-title">Log Vaccine</div>
-    <div class="form-row"><label class="form-label">Vaccine</label><select class="form-input" id="lv-vax"><option>Rabies</option><option>DHPP</option><option>DHLPP</option><option>Lepto</option><option>Lyme</option><option>Bordetella</option><option>Influenza</option><option>FVRCP</option><option>FeLV</option></select></div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Date Given</label><input class="form-input" id="lv-date" type="date"></div>
-      <div class="form-row"><label class="form-label">Due Date</label><input class="form-input" id="lv-due" type="date"></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Lot #</label><input class="form-input" id="lv-lot" type="text"></div>
-      <div class="form-row"><label class="form-label">Manufacturer</label><input class="form-input" id="lv-mfr" type="text"></div>
-    </div>
-    <div style="background:#E1F5EE;border-radius:8px;padding:10px;font-size:12px;color:#085041;margin-bottom:12px;">Rabies: 1yr first dose, then 3yr. DHPP/DHLPP/FVRCP: 3yr. Lepto/Lyme/Bordetella/Influenza/FeLV: Annual.</div>
-    <div class="modal-footer">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveVax()">Save Vaccine</button>
-    </div>`,
+logVax:`<div class="modal-title">Log Vaccine</div>
+  <div class="protocol-note">Rabies: 1yr first dose → 3yr · DHPP/DHLPP/FVRCP: q3yr · Lepto/Lyme/Bordetella/Influenza/FeLV: Annual</div>
+  <div class="form-row"><label class="form-label">Vaccine</label><select class="form-input" id="lv-vax" onchange="calcVaxDue()"><option>Rabies</option><option>DHPP</option><option>DHLPP</option><option>Lepto</option><option>Lyme</option><option>Bordetella</option><option>Influenza</option><option>FVRCP</option><option>FeLV</option></select></div>
+  <div id="rabies-first-wrap" style="display:none;margin-bottom:12px;">
+    <label class="form-label">Is this the FIRST rabies vaccine?</label>
+    <select class="form-input" id="lv-rabies-first" onchange="calcVaxDue()"><option value="no">No — give 3-year booster</option><option value="yes">Yes — give 1-year booster</option></select>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Date Given</label><input class="form-input" id="lv-given" type="date" oninput="calcVaxDue()"></div>
+    <div class="form-row"><label class="form-label">Due Date (auto-calculated)</label><input class="form-input" id="lv-due" type="date" readonly style="color:#6B6966;"></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Lot #</label><input class="form-input" id="lv-lot" type="text"></div>
+    <div class="form-row"><label class="form-label">Manufacturer</label><input class="form-input" id="lv-mfr" type="text" placeholder="Merial, Zoetis, Merck..."></div>
+  </div>
+  <div class="form-row"><label class="form-label">Notes</label><input class="form-input" id="lv-notes" type="text" placeholder="Site, route, reaction..."></div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveVax()">Save Vaccine Record</button>
+  </div>`,
 
-  addRx:`<div class="modal-title">Add Prescription</div>
-    <div class="form-row"><label class="form-label">Drug</label><input class="form-input" id="rx-drug" type="text" placeholder="Drug name"></div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Dose</label><input class="form-input" id="rx-dose" type="text" placeholder="e.g. 62.5mg"></div>
-      <div class="form-row"><label class="form-label">Route</label><select class="form-input" id="rx-route"><option>PO</option><option>SQ</option><option>IV</option><option>IM</option><option>Topical</option></select></div>
-    </div>
-    <div class="form-grid2">
-      <div class="form-row"><label class="form-label">Frequency</label><select class="form-input" id="rx-freq"><option>SID</option><option>BID</option><option>TID</option><option>QID</option><option>PRN</option><option>Once</option></select></div>
-      <div class="form-row"><label class="form-label">Duration</label><input class="form-input" id="rx-dur" type="text" placeholder="e.g. 7 days"></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveRx()">Add to Note</button>
-    </div>`,
+addRx:`<div class="modal-title">Add Prescription to Note</div>
+  <div class="form-row"><label class="form-label">Drug Name</label><input class="form-input" id="rx-drug" type="text" placeholder="Drug name"></div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Dose</label><input class="form-input" id="rx-dose" type="text" placeholder="e.g. 62.5mg"></div>
+    <div class="form-row"><label class="form-label">Route</label><select class="form-input" id="rx-route"><option>PO</option><option>SQ</option><option>IV</option><option>IM</option><option>Topical</option><option>Intranasal</option></select></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Frequency</label><select class="form-input" id="rx-freq"><option>SID</option><option>BID</option><option>TID</option><option>QID</option><option>PRN</option><option>Once</option></select></div>
+    <div class="form-row"><label class="form-label">Duration</label><input class="form-input" id="rx-dur" type="text" placeholder="e.g. 7 days / Ongoing"></div>
+  </div>
+  <div class="form-row"><label class="form-label">Instructions</label><input class="form-input" id="rx-instructions" type="text" placeholder="Give with food, refrigerate..."></div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveRx()">Add to Plan</button>
+  </div>`,
+
+addMed:`<div class="modal-title">Add Current Medication</div>
+  <div class="form-row"><label class="form-label">Drug Name</label><input class="form-input" id="med-drug" type="text"></div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Dose</label><input class="form-input" id="med-dose" type="text"></div>
+    <div class="form-row"><label class="form-label">Route</label><select class="form-input" id="med-route"><option>PO</option><option>SQ</option><option>IV</option><option>IM</option><option>Topical</option></select></div>
+  </div>
+  <div class="form-grid2">
+    <div class="form-row"><label class="form-label">Frequency</label><select class="form-input" id="med-freq"><option>SID</option><option>BID</option><option>TID</option><option>QID</option><option>PRN</option></select></div>
+    <div class="form-row"><label class="form-label">Duration</label><input class="form-input" id="med-dur" type="text" placeholder="Ongoing / 30 days..."></div>
+  </div>
+  <div class="form-row"><label class="form-label">Notes / Instructions</label><input class="form-input" id="med-notes" type="text"></div>
+  <div class="modal-footer">
+    <button class="btn" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" onclick="saveMed()">Save Medication</button>
+  </div>`,
 };
 
-function openModal(name,ptId){
-  let html=MODALS[name]||'<p>Modal not found</p>';
-  document.getElementById('modal-body').innerHTML=html;
+function openModal(name, ptId){
+  document.getElementById('modal-body').innerHTML = MODALS[name]||'<p>Modal not found.</p>';
   document.getElementById('modal-overlay').classList.add('open');
   if(name==='newVisit'){
     const sel=document.getElementById('nv-patient');
-    sel.innerHTML=STATE.patients.map(p=>`<option value="${p.id}">${p.name} (${p.ownerName||''})</option>`).join('');
+    sel.innerHTML=S.patients.map(p=>`<option value="${p.id}">${p.name} (${p.ownerName||''})</option>`).join('');
+    if(ptId) sel.value=ptId;
     document.getElementById('nv-date').value=new Date().toISOString().split('T')[0];
   }
-  if(name==='logVax'&&ptId){
-    document.getElementById('lv-date').value=new Date().toISOString().split('T')[0];
-    document.getElementById('modal-body').dataset.ptId=ptId;
+  if(name==='logVax'){
+    document.getElementById('lv-given').value=new Date().toISOString().split('T')[0];
+    document.getElementById('modal-body').dataset.ptId = ptId||currentPatientId||'';
+    document.getElementById('lv-vax').addEventListener('change',function(){
+      document.getElementById('rabies-first-wrap').style.display=this.value==='Rabies'?'block':'none';
+    });
+    calcVaxDue();
   }
 }
 
-function closeModal(){document.getElementById('modal-overlay').classList.remove('open');}
+function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); }
 
+// ============================================================
+// MODAL SAVE FUNCTIONS
+// ============================================================
 function saveNewPatient(){
+  const name=document.getElementById('np-name').value.trim();
+  const owner=document.getElementById('np-owner').value.trim();
+  if(!name){alert('Patient name is required.');return;}
   const p={
     id:'pt-'+Date.now(),
-    name:document.getElementById('np-name').value,
-    species:document.getElementById('np-species').value,
+    name,species:document.getElementById('np-species').value,
     breed:document.getElementById('np-breed').value,
+    color:document.getElementById('np-color').value,
     dob:document.getElementById('np-dob').value,
     sex:document.getElementById('np-sex').value,
-    weight:document.getElementById('np-weight').value,
+    weight:document.getElementById('np-wt').value,
     microchip:document.getElementById('np-chip').value,
-    ownerName:document.getElementById('np-owner').value,
+    alerts:document.getElementById('np-alerts').value,
+    ownerName:owner,
     ownerPhone:document.getElementById('np-phone').value,
     ownerEmail:document.getElementById('np-email').value,
     ownerAddress:document.getElementById('np-address').value,
     zip:document.getElementById('np-zip').value,
   };
-  if(!p.name){alert('Please enter a patient name.');return;}
-  STATE.patients.push(p);save('patients');
-  updateSelects();closeModal();renderPatients();
+  S.patients.push(p); save('patients'); updateSelects(); closeModal(); renderPatients();
   alert(p.name+' added successfully!');
 }
 
-function openNewVisit(){
+function openNewVisitSOAP(){
   const ptId=document.getElementById('nv-patient').value;
+  const reason=document.getElementById('nv-reason').value;
   closeModal();
-  openPatientSOAP(ptId);
+  showPanel('soap',document.querySelectorAll('.nav-item')[1]);
+  setTimeout(()=>{
+    document.getElementById('soap-pt-select').value=ptId;
+    if(reason) document.getElementById('soap-s').value='Reason: '+reason+'\n\n';
+    loadPatientSOAP();
+  },50);
 }
 
 function saveItem(){
-  const item={
-    id:'inv-'+Date.now(),
-    name:document.getElementById('ai-name').value,
+  const name=document.getElementById('ai-name').value.trim();
+  if(!name){alert('Name is required.');return;}
+  S.inventory.push({
+    id:'inv-'+Date.now(), name,
     category:document.getElementById('ai-cat').value,
     schedule:document.getElementById('ai-sched').value,
     onHand:parseInt(document.getElementById('ai-qty').value)||0,
     reorder:parseInt(document.getElementById('ai-reorder').value)||0,
     exp:document.getElementById('ai-exp').value,
-  };
-  if(!item.name){alert('Please enter a name.');return;}
-  STATE.inventory.push(item);save('inventory');closeModal();renderInventory();
+    isRx:document.getElementById('ai-rx').checked,
+  });
+  save('inventory'); closeModal(); renderInventory();
 }
 
 function saveDEA(){
@@ -792,23 +1242,45 @@ function saveDEA(){
     balance:document.getElementById('de-balance').value,
     initials:document.getElementById('de-initials').value,
   };
-  STATE.deaLog.push(entry);save('deaLog');closeModal();renderDEA();
+  S.dea.push(entry); save('dea'); closeModal(); renderDEA();
+}
+
+function calcVaxDue(){
+  const vax=document.getElementById('lv-vax')?.value;
+  const given=document.getElementById('lv-given')?.value;
+  const rabiesFirst=document.getElementById('lv-rabies-first')?.value==='yes';
+  const wrap=document.getElementById('rabies-first-wrap');
+  if(wrap) wrap.style.display=vax==='Rabies'?'block':'none';
+  if(!vax||!given) return;
+  const d=new Date(given);
+  const annual=['Lepto','Lyme','Bordetella','Influenza','FeLV'];
+  const triennial=['DHPP','DHLPP','FVRCP'];
+  let due;
+  if(vax==='Rabies') due=new Date(d.setFullYear(d.getFullYear()+(rabiesFirst?1:3)));
+  else if(annual.includes(vax)) due=new Date(d.setFullYear(d.getFullYear()+1));
+  else if(triennial.includes(vax)) due=new Date(d.setFullYear(d.getFullYear()+3));
+  else due=new Date(d.setFullYear(d.getFullYear()+1));
+  const dueEl=document.getElementById('lv-due');
+  if(dueEl) dueEl.value=due.toISOString().split('T')[0];
 }
 
 function saveVax(){
-  const ptId=document.getElementById('modal-body').dataset.ptId||STATE.patients[0]?.id;
+  const ptId=document.getElementById('modal-body').dataset.ptId||S.patients[0]?.id;
+  const given=document.getElementById('lv-given').value;
+  const due=document.getElementById('lv-due').value;
+  if(!given||!due){alert('Please enter date given and due date.');return;}
   const vax={
-    id:'vax-'+Date.now(),ptId,
+    id:'vax-'+Date.now(), ptId,
     vax:document.getElementById('lv-vax').value,
-    given:document.getElementById('lv-date').value,
-    due:document.getElementById('lv-due').value,
+    given, due,
     lot:document.getElementById('lv-lot').value,
     mfr:document.getElementById('lv-mfr').value,
+    notes:document.getElementById('lv-notes').value,
   };
-  const existing=STATE.vaccines.findIndex(v=>v.ptId===ptId&&v.vax===vax.vax);
-  if(existing>=0)STATE.vaccines[existing]=vax;
-  else STATE.vaccines.push(vax);
-  save('vaccines');closeModal();renderVaccines();
+  const existing=S.vaccines.findIndex(v=>v.ptId===ptId&&v.vax===vax.vax);
+  if(existing>=0) S.vaccines[existing]=vax; else S.vaccines.push(vax);
+  save('vaccines'); closeModal(); renderVaccines();
+  if(currentPatientId===ptId) showPatientDetail(ptId);
 }
 
 function saveRx(){
@@ -817,51 +1289,31 @@ function saveRx(){
   const route=document.getElementById('rx-route').value;
   const freq=document.getElementById('rx-freq').value;
   const dur=document.getElementById('rx-dur').value;
+  const instr=document.getElementById('rx-instructions').value;
   const p=document.getElementById('soap-p');
-  p.value+=(p.value?'\n':'')+`${drug} ${dose} ${route} ${freq} × ${dur}`;
+  p.value+=(p.value?'\n':'')+`${drug} ${dose} ${route} ${freq}${dur?' × '+dur:''}${instr?'. '+instr:''}`;
   closeModal();
 }
 
-function updateSelects(){
-  const opts=STATE.patients.map(p=>`<option value="${p.id}">${p.name} (${p.ownerName||''})</option>`).join('');
-  const ss=document.getElementById('soap-patient-select');
-  if(ss)ss.innerHTML='<option value="">Select patient...</option>'+opts;
+function saveMed(){
+  const ptId=currentPatientId||S.patients[0]?.id;
+  const drug=document.getElementById('med-drug').value.trim();
+  if(!drug){alert('Drug name required.');return;}
+  S.meds.push({
+    id:'med-'+Date.now(), ptId, drug,
+    dose:document.getElementById('med-dose').value,
+    route:document.getElementById('med-route').value,
+    freq:document.getElementById('med-freq').value,
+    dur:document.getElementById('med-dur').value,
+    notes:document.getElementById('med-notes').value,
+  });
+  save('meds'); closeModal();
+  if(currentPatientId) showPatientDetail(currentPatientId);
 }
-// Pre-load Big Boy
-if(STATE.patients.length===0){
-STATE.patients.push({
-  id:'pt-bigboy-56',
-  name:'Big Boy',
-  species:'Feline',
-  breed:'Domestic Shorthair',
-  sex:'MN',
-  dob:'10/09/2012',
-  weight:'16.92',
-  microchip:'985112009122103',
-  ownerName:'Laura Price',
-  ownerPhone:'610-444-5462',
-  ownerEmail:'lauraprice527@comcast.net',
-  ownerAddress:'527 Schoolhouse Rd, Kennett Square, PA 19348',
-  zip:'19348',
-  alerts:'DIABETIC — on Bexacat 15mg SID',
-});
-STATE.vaccines.push(
-  {id:'vax-bb-1',ptId:'pt-bigboy-56',vax:'Rabies',given:'2025-06-27',due:'2026-06-27',lot:'',mfr:'Merial Purevax'},
-  {id:'vax-bb-2',ptId:'pt-bigboy-56',vax:'FVRCP',given:'2025-06-26',due:'2028-06-26',lot:'',mfr:'Nobivac'}
-);
-STATE.soapNotes.push({
-  id:'note-bb-1',
-  patientId:'pt-bigboy-56',
-  date:'06/28/2025',
-  reason:'Annual Wellness + Vaccines',
-  s:'Patient on Bexacat for Diabetes Mellitus diagnosed this year. Owner performing BG curves at home AM or PM. Was hyporexic initially but gained approx 0.5 lbs and seems more himself. Diet: dry and wet food mix.',
-  o:'BAR, nervous but very good patient. Hydration normal. Eyes clear, pupils normal, sclera white, no discharge. Ears no exudate. Oral: mild excessive dental calculus, no gingival inflammation, gums P&M, CRT 1-2 sec. CVS: regular rhythm, no murmurs, pulses S/S. Resp: lungs clear, no increased RR/RE. GI: palpates WNL, no discomfort. Urogenital WNL. Integument: good haircoat, no pruritis, no parasites. All palp LN WNL. No lameness. Neuro WNL. BCS 8/9 OVERWEIGHT. Wt 16.92 lbs. Temp 101.4.',
-  a:'1. Diabetes Mellitus — controlled on Bexacat. 2. Periodontal disease AVDC Stage 2. 3. Overweight BCS 8/9.',
-  p:'PE, Rabies (PV) SQ RH, FVRCP SQ RF. Rec care not to regain too much weight. Owner to email latest BG curve results. Monitor ketones.',
-  temp:'101.4',hr:'',rr:'',wt:'16.92',bcs:'8/9',
-});
-save('patients');save('vaccines');save('soap');
-}
+
+// ============================================================
+// INIT
+// ============================================================
 updateSelects();
 renderPatients();
 </script>
