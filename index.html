@@ -827,7 +827,41 @@ function updateSelects(){
   const ss=document.getElementById('soap-patient-select');
   if(ss)ss.innerHTML='<option value="">Select patient...</option>'+opts;
 }
-
+// Pre-load Big Boy
+if(STATE.patients.length===0){
+STATE.patients.push({
+  id:'pt-bigboy-56',
+  name:'Big Boy',
+  species:'Feline',
+  breed:'Domestic Shorthair',
+  sex:'MN',
+  dob:'10/09/2012',
+  weight:'16.92',
+  microchip:'985112009122103',
+  ownerName:'Laura Price',
+  ownerPhone:'610-444-5462',
+  ownerEmail:'lauraprice527@comcast.net',
+  ownerAddress:'527 Schoolhouse Rd, Kennett Square, PA 19348',
+  zip:'19348',
+  alerts:'DIABETIC — on Bexacat 15mg SID',
+});
+STATE.vaccines.push(
+  {id:'vax-bb-1',ptId:'pt-bigboy-56',vax:'Rabies',given:'2025-06-27',due:'2026-06-27',lot:'',mfr:'Merial Purevax'},
+  {id:'vax-bb-2',ptId:'pt-bigboy-56',vax:'FVRCP',given:'2025-06-26',due:'2028-06-26',lot:'',mfr:'Nobivac'}
+);
+STATE.soapNotes.push({
+  id:'note-bb-1',
+  patientId:'pt-bigboy-56',
+  date:'06/28/2025',
+  reason:'Annual Wellness + Vaccines',
+  s:'Patient on Bexacat for Diabetes Mellitus diagnosed this year. Owner performing BG curves at home AM or PM. Was hyporexic initially but gained approx 0.5 lbs and seems more himself. Diet: dry and wet food mix.',
+  o:'BAR, nervous but very good patient. Hydration normal. Eyes clear, pupils normal, sclera white, no discharge. Ears no exudate. Oral: mild excessive dental calculus, no gingival inflammation, gums P&M, CRT 1-2 sec. CVS: regular rhythm, no murmurs, pulses S/S. Resp: lungs clear, no increased RR/RE. GI: palpates WNL, no discomfort. Urogenital WNL. Integument: good haircoat, no pruritis, no parasites. All palp LN WNL. No lameness. Neuro WNL. BCS 8/9 OVERWEIGHT. Wt 16.92 lbs. Temp 101.4.',
+  a:'1. Diabetes Mellitus — controlled on Bexacat. 2. Periodontal disease AVDC Stage 2. 3. Overweight BCS 8/9.',
+  p:'PE, Rabies (PV) SQ RH, FVRCP SQ RF. Rec care not to regain too much weight. Owner to email latest BG curve results. Monitor ketones.',
+  temp:'101.4',hr:'',rr:'',wt:'16.92',bcs:'8/9',
+});
+save('patients');save('vaccines');save('soap');
+}
 updateSelects();
 renderPatients();
 </script>
